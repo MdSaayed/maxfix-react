@@ -9,6 +9,7 @@ import ServicesAreaOne from './ServicesAreaOne';
 import ProcessArea from './ProcessArea';
 import RecentWorksArea from './RecentWorksArea';
 import BrandLogos from '../../brand-logos/BrandLogos';
+import BlogArea from '../../blog/BlogArea';
 
 const HomeOne = () => {
 
@@ -23,6 +24,7 @@ const HomeOne = () => {
             <ProcessArea/>
             <RecentWorksArea />
             <BrandLogos />
+            <BlogArea />
             <FooterOne />
          </>
     );
