@@ -20,7 +20,7 @@ const ServicesAreaOne = () => {
                         <span className="services__subtitle subtitle">What We Offer</span>
                     </div>
                     <h2 className="services__title title-lg">Our Services</h2>
-                    <a href="#" className="services__btn btn-arrow">
+                    <a to="#" className="services__btn btn-arrow">
                         <span className="btn-arrow__text">View All Services</span>
                     </a>
                 </div>
@@ -33,8 +33,7 @@ const ServicesAreaOne = () => {
                 </div>
 
                 <div className="services__list">
-
-                    {services_data.map((service, index) => {
+                    {services_data?.map((service, index) => {
                         const isActive = activeIndex === index;
 
                         return (
@@ -46,7 +45,7 @@ const ServicesAreaOne = () => {
                             <div className="services__item-header">
                                 <span className="services__item-index">// {index + 1}</span>
                                 <div className="services__item-title-wrap">
-                                    <span className="services__item-title">{service.title}</span>
+                                    <span className="services__item-title">{service?.title}</span>
                                     <div
                                         className="services__item-toggle-wrap"
                                         onClick={() => toggleItem(index)}
@@ -71,9 +70,9 @@ const ServicesAreaOne = () => {
                             }}
                             >
                             <div className="services__item-text">
-                                <p className="services__item-desc">{service.description}</p>
+                                <p className="services__item-desc">{service?.description}</p>
                                 <ul className="services__item-tags">
-                                {service.tags.map((tag, i) => (
+                                {service?.tags?.map((tag, i) => (
                                     <li className="services__item-tag" key={i}>
                                     {tag}
                                     </li>
@@ -81,7 +80,7 @@ const ServicesAreaOne = () => {
                                 </ul>
                             </div>
                             <div className="services__item-images">
-                                {service.images.map((img, i) => (
+                                {service?.images?.map((img, i) => (
                                 <div className="services__item-image-wrap" key={i}>
                                     <img
                                     src={img}

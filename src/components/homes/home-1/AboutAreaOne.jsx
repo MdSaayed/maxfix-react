@@ -5,6 +5,7 @@ const AboutAreaOne = () => {
     return (
         <section className="about about--one">
             <div className="about__container container">
+
                 <div className="about__title-wrap">
                     <div className="about__subtitle-wrap subtitle-wrap">
                         <svg width="24" height="26" viewBox="0 0 24 26" fill="none">
@@ -43,13 +44,14 @@ const AboutAreaOne = () => {
                             <img src="./assets/images/about/about-2.png" alt="Designer at work" className="about__image about__image--right"/>
                         </div>
                         <div className="about__button-wrapper btn-circle__wrapper">
-                            <a href="#" className="about__button">
+                            <a to="#" className="about__button">
                                 <span className="about__button-text">Explore<br/>Our Company</span>
                                 <i className="fa-solid fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
+                
                 <img src="./assets/images/hero/creative-hand.png" alt="Pointing hand" className="about__hand"/>
             </div>
         </section>

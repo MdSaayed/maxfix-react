@@ -6,6 +6,7 @@ import Keywords from '../../../common/Keywords';
 import AboutAreaOne from './AboutAreaOne';
 import FactArea from '../../fact/FactArea';
 import ServicesAreaOne from './ServicesAreaOne';
+import ProcessArea from './ProcessArea';
 
 const HomeOne = () => {
 
@@ -17,6 +18,7 @@ const HomeOne = () => {
             <AboutAreaOne />
             <FactArea />
             <ServicesAreaOne />
+            <ProcessArea/>
             <FooterOne />
          </>
     );
