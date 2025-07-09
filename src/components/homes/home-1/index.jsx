@@ -7,6 +7,7 @@ import AboutAreaOne from './AboutAreaOne';
 import FactArea from '../../fact/FactArea';
 import ServicesAreaOne from './ServicesAreaOne';
 import ProcessArea from './ProcessArea';
+import RecentWorksArea from './RecentWorksArea';
 
 const HomeOne = () => {
 
@@ -19,6 +20,7 @@ const HomeOne = () => {
             <FactArea />
             <ServicesAreaOne />
             <ProcessArea/>
+            <RecentWorksArea />
             <FooterOne />
          </>
     );
