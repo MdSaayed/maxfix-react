@@ -11,6 +11,7 @@ import RecentWorksArea from './RecentWorksArea';
 import BrandLogos from '../../brand-logos/BrandLogos';
 import BlogArea from '../../blog/BlogArea';
 import FaqArea from '../../faq/FaqArea';
+import TestimonialsAreaOne from '../../testimonials/TestimonialsAreaOne';
 
 const HomeOne = () => {
 
@@ -26,6 +27,7 @@ const HomeOne = () => {
             <RecentWorksArea />
             <BrandLogos />
             <FaqArea />
+            <TestimonialsAreaOne />
             <BlogArea />
             <FooterOne />
          </>
