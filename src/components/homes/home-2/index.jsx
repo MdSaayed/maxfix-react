@@ -9,6 +9,7 @@ import FactArea from '../../fact/FactArea';
 import ServicesAreaTwo from './ServicesAreaTwo';
 import BrandsArea from '../../brands/BrandsArea';
 import InsightsArea from './InsightsArea';
+import PricingArea from '../../pricing/PricingArea';
 
 const HomeTwo = () => {
     return (
@@ -21,6 +22,7 @@ const HomeTwo = () => {
             <FactArea />
             <ServicesAreaTwo />
             <BrandsArea />
+            <PricingArea />
             <InsightsArea />
             <FooterTwo />
         </>
