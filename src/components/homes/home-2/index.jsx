@@ -7,7 +7,8 @@ import AboutAreaTwo from './AboutAreaTwo';
 import PortfolioAreaOne from './PortfolioAreaOne';
 import FactArea from '../../fact/FactArea';
 import ServicesAreaTwo from './ServicesAreaTwo';
-import Brands from '../../brands/Brands';
+import BrandsArea from '../../brands/BrandsArea';
+import InsightsArea from './InsightsArea';
 
 const HomeTwo = () => {
     return (
@@ -19,7 +20,8 @@ const HomeTwo = () => {
             <PortfolioAreaOne />
             <FactArea />
             <ServicesAreaTwo />
-            <Brands />
+            <BrandsArea />
+            <InsightsArea />
             <FooterTwo />
         </>
     );

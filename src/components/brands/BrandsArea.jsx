@@ -9,7 +9,7 @@ const brandLogos = [
   { src: './assets/images/brand/brand-12.png', alt: 'Logo' },
 ];
 
-const Brands = () => {
+const BrandsArea = () => {
   return (
     <section className="brands">
       <div className="brands__container container">
@@ -31,4 +31,4 @@ const Brands = () => {
   );
 };
 
-export default Brands;
+export default BrandsArea;
