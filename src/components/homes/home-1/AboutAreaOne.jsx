@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const AboutAreaOne = () => {
     
@@ -44,10 +45,10 @@ const AboutAreaOne = () => {
                             <img src="./assets/images/about/about-2.png" alt="Designer at work" className="about__image about__image--right"/>
                         </div>
                         <div className="about__button-wrapper btn-circle__wrapper">
-                            <a to="#" className="about__button">
+                            <Link to="#" className="about__button">
                                 <span className="about__button-text">Explore<br/>Our Company</span>
                                 <i className="fa-solid fa-arrow-right"></i>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import testimonials_data from "../../data/testimonials-data";
 import ItemOne from './ItemOne';
+import { Link } from 'react-router-dom';
 
 const TestimonialsAreaOne = () => {
     const listRef = useRef(null);
@@ -49,9 +50,9 @@ const TestimonialsAreaOne = () => {
                         <span className="testimonials__label subtitle">Testimonials</span> 
                     </div>
                     <h2 className="testimonials__title title-lg">Clients Reviews</h2>
-                    <a href="#" className="testimonials__button btn-arrow">
+                    <Link to="#" className="testimonials__button btn-arrow">
                         <span className="testimonials__button-text btn-arrow__text">View All Services</span>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="testimonials__list" ref={listRef}>

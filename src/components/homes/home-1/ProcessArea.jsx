@@ -1,13 +1,15 @@
 import React from "react";
 import steps_data from '../../../data/steps-data'; 
+import { Link } from "react-router-dom";
 
 const ProcessArea = () => {
 
   return (
     <section className="process process--one">
       <div className="container__process container">
+
         <div className="process__content-area">
-        
+
           <div className="process__intro">
             <div className="process__title-wrap">
               <div className="process__subtitle-wrap subtitle-wrap">
@@ -28,11 +30,11 @@ const ProcessArea = () => {
               </h2>
             </div>
             <div className="process__btn-group">
-              <a to="#" className="process__btn btn-arrow btn-arrow__black">
+              <Link to="#" className="process__btn btn-arrow btn-arrow__black">
                 <span className="process__btn-text btn-arrow__text">
                   Explore More
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -49,7 +51,9 @@ const ProcessArea = () => {
               </div>
             ))}
           </div>
+          
         </div>
+
       </div>
     </section>
   );

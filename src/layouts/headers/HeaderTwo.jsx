@@ -13,7 +13,7 @@ const HeaderTwo = () => {
                     <div className="header__content-area">
                         <div className="header__logo">
                             <Link to="/" className="logo">
-                                <img src="/assets/images/global/logo.png" alt="Maxfix Logo" className="logo__img" />
+                                <img src="./assets/images/global/logo.png" alt="Maxfix Logo" className="logo__img" />
                             </Link>
                         </div>
 

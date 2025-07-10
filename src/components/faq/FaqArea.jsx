@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import faq_data from "../../data/faq-data"
 import FaqItem from './FaqItem';
+import { Link } from 'react-router-dom';
 
 const FaqArea = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -13,9 +14,9 @@ const FaqArea = () => {
                     <h2 className="faq__title title-lg">FAQ</h2>
                     <div className="faq__sidebar-text-wrap">
                         <p className="faq__subtitle">Having Another Question?</p>
-                        <a href="#" className="faq__button process__btn btn-arrow btn-arrow__black">
+                        <Link to="#" className="faq__button process__btn btn-arrow btn-arrow__black">
                             <span className="faq__button-text btn-arrow__text">Get In Touch</span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
 

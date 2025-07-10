@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import services_data from '../../../data/services_data'; 
+import { Link } from 'react-router-dom';
 
 const ServicesAreaOne = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -20,9 +21,9 @@ const ServicesAreaOne = () => {
                         <span className="services__subtitle subtitle">What We Offer</span>
                     </div>
                     <h2 className="services__title title-lg">Our Services</h2>
-                    <a to="#" className="services__btn btn-arrow">
+                    <Link to="#" className="services__btn btn-arrow">
                         <span className="btn-arrow__text">View All Services</span>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="services__content">

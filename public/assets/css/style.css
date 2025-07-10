@@ -607,6 +607,7 @@ html.lenis, html.lenis body {
   width: 100%;
   padding: 1.5rem 2rem;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .header--two .current-menu-item{
