@@ -10,7 +10,7 @@ const PricingArea = () => {
             <div className="pricing__container container">
 
                 <h2 className="pricing__title title">
-                Choose the perfect plan for your digital growth and lasting success
+                    Choose the perfect plan for your digital growth and lasting success
                 </h2>
 
                 <div className="pricing__toggle">
