@@ -1,6 +1,7 @@
 import React from "react";
 import steps_data from '../../../data/steps-data'; 
 import { Link } from "react-router-dom";
+import ButtonArrow from "../../../common/ButtonArrow";
 
 const ProcessArea = () => {
 
@@ -29,12 +30,9 @@ const ProcessArea = () => {
                 Every Pixel
               </h2>
             </div>
+            
             <div className="process__btn-group">
-              <Link to="#" className="process__btn btn-arrow btn-arrow__black">
-                <span className="process__btn-text btn-arrow__text">
-                  Explore More
-                </span>
-              </Link>
+               <ButtonArrow link='#' variant='black' text='Explore More' />
             </div>
           </div>
 

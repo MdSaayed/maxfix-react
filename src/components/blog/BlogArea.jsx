@@ -3,6 +3,7 @@ import blog_data from '../../data/blog-data';
 import useBackground from '../../hooks/useBackground';
 import BlogCard from '../elements/BlogCard';
 import { Link } from 'react-router-dom';
+import ButtonArrow from '../../common/ButtonArrow';
 
 
 const BlogArea = () => {
@@ -20,9 +21,8 @@ const BlogArea = () => {
                         <p className="blog__subtitle subtitle">Our Perspectives</p>
                     </div>
                     <h2 className="blog__heading title-lg">Latest Insights</h2>
-                    <Link to="#" className="blog__btn btn btn-arrow btn-arrow__black">
-                        <span className="blog__btn-text btn-arrow__text">See All Articles</span>
-                    </Link>
+
+                    <ButtonArrow link='/blog' variant='black' text='See All Articles' />
                 </div>
 
                 <div className="blog__grid">

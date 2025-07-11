@@ -74,16 +74,16 @@ const OffCanvas = ({ isOpen, setIsOpen }) => {
 
         <div className="mobile-menu__contact">
             <Link to="#" className="mobile-menu__contact-link">
-            <span className="icon-wrap"><i className="fa-solid fa-location-dot"></i></span>
-            <span>Dhaka, Bangladesh</span>
+                <span className="icon-wrap"><i className="fa-solid fa-location-dot"></i></span>
+                <span>Dhaka, Bangladesh</span>
             </Link>
             <Link to="mailto:hello@cruvagency.com" className="mobile-menu__contact-link">
-            <span className="icon-wrap"><i className="fa-solid fa-envelope"></i></span>
-            <span>hello@maxfix.com</span>
+                <span className="icon-wrap"><i className="fa-solid fa-envelope"></i></span>
+                <span>hello@maxfix.com</span>
             </Link>
             <Link to="tel:5055550125" className="mobile-menu__contact-link">
-            <span className="icon-wrap"><i className="fa-solid fa-phone"></i></span>
-            <span>(505) 555-0125</span>
+                <span className="icon-wrap"><i className="fa-solid fa-phone"></i></span>
+                <span>(505) 555-0125</span>
             </Link>
         </div>
     </div>
