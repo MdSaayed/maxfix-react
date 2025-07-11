@@ -14,7 +14,7 @@ const Services = () => {
     return (
         <>
             <HeaderTwo />
-            <Breadcrumb text="Services" />
+            <Breadcrumb linkText="Services" title="Services" />
             <Keywords />
             <ServicesAreaOne showHeader={false} customClass='services--services'/>
             <VideoArea />

@@ -98,7 +98,7 @@ const menu_data = [
   {
     id: 6,
     title: "Contact",
-    link: "/contact-us",
+    link: "/contact",
     has_dropdown: false,
   },
 ];

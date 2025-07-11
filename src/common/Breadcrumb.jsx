@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import TrustHighlight from "./TrustHighlight";
 import useBackground from "../hooks/useBackground";
 
-const Breadcrumb = ({ text }) => {
+const Breadcrumb = ({ linkText,title }) => {
   const breadcrumbsBg = useBackground(
     "./assets/images/shape/portfolio-hero-bg.jpg"
   );
@@ -24,10 +24,10 @@ const Breadcrumb = ({ text }) => {
             to={location}
             className="breadcrumbs__item breadcrumbs__item--active"
           >
-            {text}
+            {linkText}
           </Link>
         </div>
-        <h1 className="breadcrumbs__title title-lg">Services</h1>
+        <h1 className="breadcrumbs__title title-lg">{title}</h1>
       </div>
 
       <div
