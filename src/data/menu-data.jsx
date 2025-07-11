@@ -11,12 +11,12 @@ const menu_data = [
   },
   {
     id: 3,
-    title: "Portfolio",
+    title: "Services",
     link: "#",
     has_dropdown: true,
     sub_menus: [
-      { link: "/portfolio", title: "Portfolio", inner_submenu: false },
-      { link: "/single-portfolio", title: "Portfolio Details", inner_submenu: false },
+      { link: "/services", title: "Services", inner_submenu: false },
+      { link: "/single-services", title: "Services Details", inner_submenu: false },
     ],
   },
   {
@@ -35,7 +35,7 @@ const menu_data = [
     link: "#",
     has_dropdown: true,
     sub_menus: [
-      { link: "/about-us", title: "About Us", inner_submenu: false },
+      { link: "/about", title: "About Us", inner_submenu: false },
       { link: "/pricing", title: "Pricing", inner_submenu: false },
       {
         link: "#",

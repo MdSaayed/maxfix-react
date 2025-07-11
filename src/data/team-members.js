@@ -4,10 +4,10 @@ const team_members = [
     role: 'Creative Director',
     image: './assets/images/team/team-member-1.png',
     socials: [
-      { platform: "<i class='fab fa-facebook-f'></i>", url: 'https://facebook.com/james' },
-      { platform: "<i class='fab fa-x-twitter'></i>", url: 'https://twitter.com/james' },
-      { platform: "<i class='fab fa-instagram'></i", url: 'https://instagram.com/james' },
-      { platform: "<i class='fa-solid fa-basketball'></i>", url: 'https://dribbble.com/james' },
+      { platform: "<i className='fab fa-facebook-f'></i>", url: 'https://facebook.com/james' },
+      { platform: "<i className='fab fa-x-twitter'></i>", url: 'https://twitter.com/james' },
+      { platform: "<i className='fab fa-instagram'></i", url: 'https://instagram.com/james' },
+      { platform: "<i className='fa-solid fa-basketball'></i>", url: 'https://dribbble.com/james' },
     ],
   },
   {
@@ -15,10 +15,10 @@ const team_members = [
     role: 'Lead Developer',
     image: './assets/images/team/team-member-2.png',
     socials: [
-      { platform: "<i class='fab fa-facebook-f'></i>", url: 'https://facebook.com/james' },
-      { platform: "<i class='fab fa-x-twitter'></i>", url: 'https://twitter.com/james' },
-      { platform: "<i class='fab fa-instagram'></i", url: 'https://instagram.com/james' },
-      { platform: "<i class='fa-solid fa-basketball'></i>", url: 'https://dribbble.com/james' },
+      { platform: "<i className='fab fa-facebook-f'></i>", url: 'https://facebook.com/james' },
+      { platform: "<i className='fab fa-x-twitter'></i>", url: 'https://twitter.com/james' },
+      { platform: "<i className='fab fa-instagram'></i", url: 'https://instagram.com/james' },
+      { platform: "<i className='fa-solid fa-basketball'></i>", url: 'https://dribbble.com/james' },
     ],
   },
   {
@@ -26,10 +26,10 @@ const team_members = [
     role: 'Marketing Manager',
     image: './assets/images/team/team-member-3.png',
     socials: [
-      { platform: "<i class='fab fa-facebook-f'></i>", url: 'https://facebook.com/james' },
-      { platform: "<i class='fab fa-x-twitter'></i>", url: 'https://twitter.com/james' },
-      { platform: "<i class='fab fa-instagram'></i", url: 'https://instagram.com/james' },
-      { platform: "<i class='fa-solid fa-basketball'></i>", url: 'https://dribbble.com/james' },
+      { platform: "<i className='fab fa-facebook-f'></i>", url: 'https://facebook.com/james' },
+      { platform: "<i className='fab fa-x-twitter'></i>", url: 'https://twitter.com/james' },
+      { platform: "<i className='fab fa-instagram'></i", url: 'https://instagram.com/james' },
+      { platform: "<i className='fa-solid fa-basketball'></i>", url: 'https://dribbble.com/james' },
     ],
    },
   {
@@ -37,10 +37,10 @@ const team_members = [
     role: 'Product Strategist',
     image: './assets/images/team/team-member-4.png',
     socials: [
-      { platform: "<i class='fab fa-facebook-f'></i>", url: 'https://facebook.com/james' },
-      { platform: "<i class='fab fa-x-twitter'></i>", url: 'https://twitter.com/james' },
-      { platform: "<i class='fab fa-instagram'></i", url: 'https://instagram.com/james' },
-      { platform: "<i class='fa-solid fa-basketball'></i>", url: 'https://dribbble.com/james' },
+      { platform: "<i className='fab fa-facebook-f'></i>", url: 'https://facebook.com/james' },
+      { platform: "<i className='fab fa-x-twitter'></i>", url: 'https://twitter.com/james' },
+      { platform: "<i className='fab fa-instagram'></i", url: 'https://instagram.com/james' },
+      { platform: "<i className='fa-solid fa-basketball'></i>", url: 'https://dribbble.com/james' },
     ],
   },
 ];
