@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useBackground from '../../hooks/useBackground';
 
 const FooterTwo = () => {
+    const footerBg = useBackground("./assets/images/shape/footer-shape.png"); 
+    const footerShape = useBackground("./assets/images/shape/footer-shape.png");
     return (
         <footer className="footer footer--two">
-            <div className="footer__shape-top" data-bg-img="./assets/images/shape/footer-shape.png" ></div>
+            <div className="footer__shape-top" style={footerBg}></div>
 
             <div className="footer__container container">
                 <div className="footer__top">
@@ -67,7 +70,7 @@ const FooterTwo = () => {
                 </div>
             </div>
 
-            <div className="footer__shape-top" data-bg-img="./img/shape/footer-shape.png"></div>
+            <div className="footer__shape-top" style={footerShape}></div>
 
             <div className="footer__container container">
                 <div className="footer__brand">

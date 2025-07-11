@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import OffCanvas from '../../common/OffCanvas';
 import menu_data from '../../data/menu-data'; 
 
 const HeaderTwo = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
+
     
     return (
         <>
@@ -18,39 +20,37 @@ const HeaderTwo = () => {
                         </div>
 
                         <ul className="menu main-menu">
-                            {menu_data.map((menu) => (
+                            {menu_data.map((menu) => {
+                                const isActive = location.pathname === menu.link;
+
+                                return (
                                 <li
-                                key={menu.id}
-                                className={`menu-item ${menu.has_dropdown ? 'menu-item-has-children' : ''}`}
+                                    key={menu.id}
+                                    className={`menu-item ${menu.has_dropdown ? 'menu-item-has-children' : ''} ${isActive ? 'current-menu-item' : ''}`}
                                 >
-                                <Link to={menu.link}>{menu.title}</Link>
+                                    <Link to={menu.link}>{menu.title}</Link>
 
-                                {menu.has_dropdown && (
+                                    {menu.has_dropdown && (
                                     <ul className="sub-menu">
-                                    {menu.sub_menus.map((sub, subIndex) => (
-                                        <li
-                                        key={subIndex}
-                                        className={`menu-item ${sub.inner_submenu ? 'menu-item-has-children' : ''}`}
-                                        >
-                                        <Link to={sub.link}>{sub.title}</Link>
+                                        {menu.sub_menus.map((sub, subIndex) => {
+                                        const isSubActive = location.pathname === sub.link;
 
-                                        {sub.inner_submenu && sub.sub_menu && (
-                                            <ul className="sub-menu">
-                                            {sub.sub_menu.map((inner, innerIndex) => (
-                                                <li key={innerIndex} className="menu-item">
-                                                <Link to={inner.link}>{inner.title}</Link>
-                                                </li>
-                                            ))}
-                                            </ul>
-                                        )}
-                                        </li>
-                                    ))}
+                                        return (
+                                            <li
+                                            key={subIndex}
+                                            className={`menu-item ${sub.inner_submenu ? 'menu-item-has-children' : ''} ${isSubActive ? 'current-menu-item' : ''}`}
+                                            >
+                                                <Link to={sub.link}>{sub.title}</Link>
+                                            </li>
+                                        );
+                                        })}
                                     </ul>
-                                )}
+                                    )}
                                 </li>
-                            ))}
+                                );
+                            })}
                         </ul>
-                        
+
                         <div className="header__menu-btn">
                             <Link to="/contact" className="menu-btn">
                                 <span className="menu-btn__icon"></span> 
@@ -67,6 +67,7 @@ const HeaderTwo = () => {
                     </div>
                 </div>
             </header>
+
             <OffCanvas isOpen={isOpen} setIsOpen={setIsOpen} />
         </>
     );

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import menu_data from '../data/menu-data'; 
 
 const OffCanvas = ({ isOpen, setIsOpen }) => {
   const [openMenus, setOpenMenus] = useState({});
+  const location = useLocation();
+
 
   const toggleSubMenu = (index) => {
     setOpenMenus((prev) => ({
@@ -24,36 +26,50 @@ const OffCanvas = ({ isOpen, setIsOpen }) => {
         </div>
 
         <ul className="mobile-menu__list">
-            {menu_data.map((item, index) => (
-                <li
+        {menu_data.map((item, index) => {
+            const isParentActive = location.pathname === item.link;
+
+            return (
+            <li
                 key={index}
-                className={`menu-item ${item.has_dropdown ? 'menu-item-has-children' : ''} ${
-                    openMenus[index] ? 'open' : ''
-                }`}
-                >
+                className={`menu-item ${item.has_dropdown ? 'menu-item-has-children' : ''} 
+                ${openMenus[index] ? 'open' : ''} 
+                ${isParentActive ? 'current-menu-item' : ''}`}
+            >
                 <Link
-                    to={item.link}
-                    onClick={(e) => {
+                to={item.link}
+                onClick={(e) => {
                     if (item.has_dropdown) {
-                        e.preventDefault();
-                        toggleSubMenu(index);
+                    e.preventDefault();
+                    toggleSubMenu(index);
+                    } else {
+                    setIsOpen(false); 
                     }
-                    }}
+                }}
                 >
-                    {item.title}
+                {item.title}
                 </Link>
 
                 {item.has_dropdown && openMenus[index] && item.sub_menus && (
-                    <ul className="sub-menu">
-                    {item.sub_menus.map((sub, subIndex) => (
-                        <li key={subIndex} className="menu-item">
+                <ul className="sub-menu">
+                    {item.sub_menus.map((sub, subIndex) => {
+                    const isSubActive = location.pathname === sub.link;
+
+                    return (
+                        <li
+                        key={subIndex}
+                        className={`menu-item ${isSubActive ? 'current-menu-item' : ''}`}
+                        onClick={() => setIsOpen(false)} // close on submenu click
+                        >
                         <Link to={sub.link}>{sub.title}</Link>
                         </li>
-                    ))}
-                    </ul>
+                    );
+                    })}
+                </ul>
                 )}
-                </li>
-            ))}
+            </li>
+            );
+        })}
         </ul>
 
         <div className="mobile-menu__contact">

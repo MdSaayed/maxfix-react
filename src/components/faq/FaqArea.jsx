@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import faq_data from "../../data/faq-data"
-import FaqItem from './FaqItem';
+import FaqItem from '../elements/FaqItem';
 import { Link } from 'react-router-dom';
 
 const FaqArea = () => {

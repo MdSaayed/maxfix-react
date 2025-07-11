@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import testimonials_data from "../../data/testimonials-data";
-import ItemOne from './ItemOne';
+import TestimonialsItemOne from '../elements/TestimonialsItemOne';
 import { Link } from 'react-router-dom';
 
 const TestimonialsAreaOne = () => {
@@ -57,7 +57,7 @@ const TestimonialsAreaOne = () => {
 
                 <div className="testimonials__list" ref={listRef}>
                     {testimonials_data.map((testimonial, index) => (
-                        <ItemOne
+                        <TestimonialsItemOne
                         key={testimonial.id}
                         testimonial={testimonial}
                         index={index}

@@ -1,22 +1,12 @@
 import React from 'react';
 import blog_data from '../../data/blog-data'; 
-import { Link } from 'react-router-dom';
 import useBackground from '../../hooks/useBackground';
+import BlogCard from '../elements/BlogCard';
+import { Link } from 'react-router-dom';
 
 
 const BlogArea = () => {
     const bgStyle = useBackground("./assets/images/shape/blog-bg.png");
-
-    const formatDate = (dateStr) => {
-        if (!dateStr) return "";
-
-        const date = new Date(dateStr);
-        return date.toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-        });
-    };
 
     return (
         <section className="blog" style={bgStyle}>
@@ -37,36 +27,7 @@ const BlogArea = () => {
 
                 <div className="blog__grid">
                     {blog_data?.map((post, index) => (
-                        <article className="blog__item" key={index}>
-                            <Link to={post?.link} className="blog__link">
-                                <div className="blog__image-wrapper">
-                                <img
-                                    src={post?.image}
-                                    alt={post?.alt}
-                                    className="blog__image"
-                                />
-                                </div>
-                            </Link>
-                            <div className="blog__content">
-                                <div className="blog__meta">
-                                    <span className="blog__meta-date">
-                                        {formatDate(post?.date)}
-                                    </span>
-                                    <span className="blog__meta-reading-time">
-                                        {post?.readingTime}
-                                    </span>
-                                </div>
-                                <div className="blog__text">
-                                    <h3 className="blog__title">
-                                        <Link to={post?.link} className="blog__link">
-                                            {post?.title}
-                                        </Link>
-                                    </h3>
-                                    <p className="blog__excerpt">{post?.excerpt}</p>
-                                </div>
-                            </div>
-                            <button className="blog__icon">+</button>
-                        </article>
+                        <BlogCard key={index} post={post} />
                     ))}
                                     
                 </div>

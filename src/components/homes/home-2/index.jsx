@@ -11,6 +11,7 @@ import BrandsArea from '../../brands/BrandsArea';
 import InsightsArea from './InsightsArea';
 import PricingArea from '../../pricing/PricingArea';
 import TeamArea from './TeamArea';
+import TestimonialsAreaTwo from '../../testimonials/TestimonialsAreaTwo';
 
 const HomeTwo = () => {
     return (
@@ -23,6 +24,7 @@ const HomeTwo = () => {
             <FactArea />
             <ServicesAreaTwo />
             <BrandsArea />
+            <TestimonialsAreaTwo />
             <TeamArea />
             <PricingArea />
             <InsightsArea />

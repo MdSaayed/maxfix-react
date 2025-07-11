@@ -1,0 +1,74 @@
+import React, { useState } from 'react';
+import testimonials_data2 from '../../data/testimonials-data2';
+import useBackground from '../../hooks/useBackground';
+import TestimonialsItemTwo from '../elements/TestimonialsItemTwo';
+
+const TestimonialsAreaTwo = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sectionBg = useBackground("./assets/images/shape/testimonial-bg.png");
+
+  const handleToggle = (index) => {
+    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
+  return (
+    <section
+      className="testimonials testimonials--two" style={sectionBg}>
+      <div className="testimonials__container container">
+        <div className="testimonials__subtitle-wrap subtitle-wrap">
+          <svg
+              width="24"
+              height="26"
+              viewBox="0 0 24 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="
+                  M 17.82 13.02
+                  C 17.6326 12.8337 17.3792 12.7292 17.115 12.7292
+                  C 16.8508 12.7292 16.5974 12.8337 16.41 13.02
+                  C 16.2237 13.2074 16.1192 13.4608 16.1192 13.725
+                  C 16.1192 13.9892 16.2237 14.2426 16.41 14.43
+                  L 20.2 18.22
+                  H 2
+                  V 1
+                  C 2 0.734784 1.89464 0.48043 1.70711 0.292893
+                  C 1.51957 0.105357 1.26522 0 1 0
+                  C 0.734784 0 0.48043 0.105357 0.292893 0.292893
+                  C 0.105357 0.48043 0 0.734784 0 1
+                  V 18.22
+                  C 0 18.7504 0.210714 19.2591 0.585786 19.6342
+                  C 0.960859 20.0093 1.46957 20.22 2 20.22
+                  H 20.15
+                  L 16.41 23.97
+                  C 16.2237 24.1574 16.1192 24.4108 16.1192 24.675
+                  C 16.1192 24.9392 16.2237 25.1926 16.41 25.38
+                  C 16.5963 25.5647 16.8477 25.6689 17.11 25.67
+                  C 17.2416 25.6708 17.3721 25.6455 17.4939 25.5958
+                  C 17.6157 25.546 17.7266 25.4727 17.82 25.38
+                  L 24 19.22
+                  L 17.82 13.02
+                  Z
+                "
+                fill="#FFFB1F"
+              />
+            </svg>
+          <span className="testimonials__subtitle subtitle">Testimonials</span>
+        </div>
+        <h2 className="testimonials__title title-gradient">Reviews</h2>
+
+        <div className="testimonials__list">
+          {testimonials_data2.map((testimonial, i) => {
+            const isActive = activeIndex === i;
+            return (
+              <TestimonialsItemTwo key={i} isActive={isActive} index={i} testimonial={testimonial} handleToggle={handleToggle} />
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TestimonialsAreaTwo;

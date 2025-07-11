@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ItemOne = ({
+const TestimonialsItemOne = ({
   testimonial,
   index,
   isLast,
@@ -38,4 +38,4 @@ const ItemOne = ({
   );
 };
 
-export default ItemOne;
+export default TestimonialsItemOne;
