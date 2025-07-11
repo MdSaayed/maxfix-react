@@ -2,7 +2,6 @@ import React from 'react';
 import HeaderTwo from '../../../layouts/headers/HeaderTwo';
 import FooterTwo from '../../../layouts/footers/footerTwo';
 import HeroAreaTwo from './HeroAreaTwo';
-import Keywords from '../../../common/Keywords';
 import AboutAreaTwo from './AboutAreaTwo';
 import PortfolioAreaOne from './PortfolioAreaOne';
 import FactArea from '../../fact/FactArea';
@@ -12,6 +11,7 @@ import InsightsArea from './InsightsArea';
 import PricingArea from '../../pricing/PricingArea';
 import TeamArea from './TeamArea';
 import TestimonialsAreaTwo from '../../testimonials/TestimonialsAreaTwo';
+import Keywords from '../../keywords/Keywords';
 
 const HomeTwo = () => {
     return (
@@ -24,7 +24,7 @@ const HomeTwo = () => {
             <FactArea />
             <ServicesAreaTwo />
             <BrandsArea />
-            <TestimonialsAreaTwo />
+            <TestimonialsAreaTwo /> 
             <TeamArea />
             <PricingArea />
             <InsightsArea />

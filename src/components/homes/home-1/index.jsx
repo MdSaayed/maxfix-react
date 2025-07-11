@@ -2,7 +2,6 @@ import React from 'react';
 import HeaderOne from '../../../layouts/headers/HeaderOne';
 import FooterOne from '../../../layouts/footers/FooterOne';
 import HeroAreaHomeOne from './HeroAreaHomeOne';
-import Keywords from '../../../common/Keywords';
 import AboutAreaOne from './AboutAreaOne';
 import FactArea from '../../fact/FactArea';
 import ServicesAreaOne from './ServicesAreaOne';
@@ -12,6 +11,7 @@ import BrandLogos from '../../brand-logos/BrandLogos';
 import BlogArea from '../../blog/BlogArea';
 import FaqArea from '../../faq/FaqArea';
 import TestimonialsAreaOne from '../../testimonials/TestimonialsAreaOne';
+import Keywords from '../../keywords/Keywords';
 
 const HomeOne = () => {
 

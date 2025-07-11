@@ -5,6 +5,7 @@ import useBackground from '../../hooks/useBackground';
 const FooterTwo = () => {
     const footerBg = useBackground("./assets/images/shape/footer-shape.png"); 
     const footerShape = useBackground("./assets/images/shape/footer-shape.png");
+    
     return (
         <footer className="footer footer--two">
             <div className="footer__shape-top" style={footerBg}></div>
