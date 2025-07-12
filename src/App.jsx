@@ -7,6 +7,8 @@ import Contact from './components/pages/contact/Index';
 import Blog from './components/pages/blog/Index';
 import Portfolio from './components/pages/portfolio/Index';
 import BlogDetails from './components/pages/blog-details/Index';
+import NotFound from './components/pages/not-found/Index';
+import Faq from './components/pages/faq/Index';
 
 function App() {
 
@@ -18,7 +20,9 @@ function App() {
     { path: "/blog", element: <Blog /> },
     { path: "/blog-details", element: <BlogDetails /> },
     { path: "/portfolio", element: <Portfolio /> },
+    { path: "/faq", element: <Faq /> },
     { path: "/contact", element: <Contact /> },
+    { path: "*", element: <NotFound /> },
   ]);
 
   return (
