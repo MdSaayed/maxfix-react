@@ -5,6 +5,7 @@ import About from './components/pages/about/Index';
 import Services from './components/pages/services/Index';
 import Contact from './components/pages/contact/Index';
 import Blog from './components/pages/blog/Index';
+import BlogDetails from './components/pages/blog/BlogDetails';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     { path: "/about", element: <About /> },
     { path: "/services", element: <Services /> },
     { path: "/blog", element: <Blog /> },
+    { path: "/blog-details", element: <BlogDetails /> },
     { path: "/contact", element: <Contact /> },
   ]);
 

@@ -26,7 +26,7 @@ const menu_data = [
     has_dropdown: true,
     sub_menus: [
       { link: "/blog", title: "Blog", inner_submenu: false },
-      { link: "/single-blog", title: "Blog Details", inner_submenu: false },
+      { link: "/blog-details", title: "Blog Details", inner_submenu: false },
     ],
   },
    {
