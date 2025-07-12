@@ -41,6 +41,20 @@ const recent_works = [
     tags: ["Packaging", "Label Design", "Eco Friendly"],
     category: "support",
   },
+  {
+    image: "./assets/images/portfolio/portfolio-11.png",
+    title: "Book Cover Design",
+    year: "2025",
+    tags: ["Development", "Package_Design", "Branding"],
+    category: "support",
+  },
+  {
+    image: "./assets/images/portfolio/portfolio-12.png",
+    title: "Graphic Design",
+    year: "2025",
+    tags: ["Development", "Package_Design", "Branding"],
+    category: "support",
+  },
 ];
 
 export default recent_works;

@@ -19,7 +19,6 @@ const BlogCommentForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Simulate form processing (can be replaced with real API call)
     setTimeout(() => {
       Swal.fire({
         title: "Thank You!",
@@ -28,7 +27,6 @@ const BlogCommentForm = () => {
         confirmButtonText: "OK",
       });
 
-      // Clear form after submission
       setFormData({
         name: "",
         email: "",
@@ -74,7 +72,7 @@ const BlogCommentForm = () => {
 
       <div className="blog__btn-wrap">
         <button type="submit" className="blog__submit btn-arrow">
-          <span className="blog__submit-text btn-arrow__text">
+          <span className="blog__submit-text btn-arrow__text">    
             Submit Comment
           </span>
         </button>

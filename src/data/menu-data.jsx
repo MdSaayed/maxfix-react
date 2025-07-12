@@ -16,7 +16,11 @@ const menu_data = [
     has_dropdown: true,
     sub_menus: [
       { link: "/services", title: "Services", inner_submenu: false },
-      { link: "/single-services", title: "Services Details", inner_submenu: false },
+      {
+        link: "/single-services",
+        title: "Services Details",
+        inner_submenu: false,
+      },
     ],
   },
   {
@@ -29,7 +33,7 @@ const menu_data = [
       { link: "/blog-details", title: "Blog Details", inner_submenu: false },
     ],
   },
-   {
+  {
     id: 2,
     title: "Pages",
     link: "#",
@@ -37,62 +41,7 @@ const menu_data = [
     sub_menus: [
       { link: "/about", title: "About Us", inner_submenu: false },
       { link: "/pricing", title: "Pricing", inner_submenu: false },
-      {
-        link: "#",
-        title: "Integrations",
-        inner_submenu: true,
-        sub_menu: [
-          { link: "/integration", title: "Integrations" },
-          { link: "/single-integration", title: "Integrations Details" },
-        ],
-      },
-      {
-        link: "#",
-        title: "Team",
-        inner_submenu: true,
-        sub_menu: [
-          { link: "/team", title: "Team" },
-          { link: "/single-team", title: "Team Details" },
-        ],
-      },
-      {
-        link: "#",
-        title: "Service",
-        inner_submenu: true,
-        sub_menu: [
-          { link: "/service", title: "Service" },
-          { link: "/single-service", title: "Service Details" },
-        ],
-      },
-      {
-        link: "#",
-        title: "Career",
-        inner_submenu: true,
-        sub_menu: [
-          { link: "/career", title: "Career" },
-          { link: "/single-career", title: "Career Details" },
-        ],
-      },
-      {
-        link: "#",
-        title: "Utility",
-        inner_submenu: true,
-        sub_menu: [
-          { link: "/faq", title: "FAQ" },
-          { link: "/404", title: "Error 404" },
-          { link: "/coming-soon", title: "Coming Soon" },
-        ],
-      },
-      {
-        link: "#",
-        title: "Accounts",
-        inner_submenu: true,
-        sub_menu: [
-          { link: "/sign-up", title: "Sign Up" },
-          { link: "/sign-in", title: "Sign In" },
-          { link: "/reset-password", title: "Reset Password" },
-        ],
-      },
+      { link: "/portfolio", title: "Portfolio", has_dropdown: false },
     ],
   },
   {
