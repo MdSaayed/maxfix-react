@@ -17,7 +17,7 @@ const menu_data = [
     sub_menus: [
       { link: "/services", title: "Services", inner_submenu: false },
       {
-        link: "/single-services",
+        link: "/services-details",
         title: "Services Details",
         inner_submenu: false,
       },
@@ -43,6 +43,7 @@ const menu_data = [
       { link: "/pricing", title: "Pricing", inner_submenu: false },
       { link: "/portfolio", title: "Portfolio", has_dropdown: false },
       { link: "/faq", title: "Faq", has_dropdown: false },
+      { link: "/team", title: "Team", has_dropdown: false },
     ],
   },
   {

@@ -4719,9 +4719,15 @@ span.testimonials__item-index {
   right: 10px;
 }
 
-.swiper-button-prev i,
-.swiper-button-next i {
-  font-size: 1.3rem;
+
+  .hero__slider-button-prev svg,
+  .hero__slider-button-next svg {
+    fill: var(--color-primary);
+  }
+
+.swiper-button-prev svg,
+.swiper-button-next svg {
+  font-size: 1.8rem;
   color: var(--color-primary);
 }
 

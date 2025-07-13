@@ -10,6 +10,8 @@ import BlogDetails from './components/pages/blog-details/Index';
 import NotFound from './components/pages/not-found/Index';
 import Faq from './components/pages/faq/Index';
 import Pricing from './components/pages/pricing/Index';
+import Team from './components/pages/team/Index';
+import ServicesDetails from './components/pages/servies-details/Index';
 
 function App() {
 
@@ -18,11 +20,13 @@ function App() {
     { path: "/index-2", element: <HomeTwo /> },
     { path: "/about", element: <About /> },
     { path: "/services", element: <Services /> },
+    { path: "/services-details", element: <ServicesDetails /> },
     { path: "/blog", element: <Blog /> },
     { path: "/blog-details", element: <BlogDetails /> },
     { path: "/portfolio", element: <Portfolio /> },
     { path: "/faq", element: <Faq /> },
     { path: "/pricing", element: <Pricing /> },
+    { path: "/team", element: <Team /> },
     { path: "/contact", element: <Contact /> },
     { path: "*", element: <NotFound /> },
   ]);
