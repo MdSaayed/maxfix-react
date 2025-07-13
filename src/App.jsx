@@ -12,6 +12,7 @@ import Faq from './components/pages/faq/Index';
 import Pricing from './components/pages/pricing/Index';
 import Team from './components/pages/team/Index';
 import ServicesDetails from './components/pages/servies-details/Index';
+import PortfolioDetails from './components/pages/portfolio-details/Index';
 
 function App() {
 
@@ -24,10 +25,12 @@ function App() {
     { path: "/blog", element: <Blog /> },
     { path: "/blog-details", element: <BlogDetails /> },
     { path: "/portfolio", element: <Portfolio /> },
+    { path: "/portfolio-details", element: <PortfolioDetails /> },
     { path: "/faq", element: <Faq /> },
     { path: "/pricing", element: <Pricing /> },
     { path: "/team", element: <Team /> },
     { path: "/contact", element: <Contact /> },
+    { path: "/error", element: <NotFound /> },
     { path: "*", element: <NotFound /> },
   ]);
 

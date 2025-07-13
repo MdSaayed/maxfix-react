@@ -42,8 +42,10 @@ const menu_data = [
       { link: "/about", title: "About Us", inner_submenu: false },
       { link: "/pricing", title: "Pricing", inner_submenu: false },
       { link: "/portfolio", title: "Portfolio", has_dropdown: false },
+      { link: "/portfolio-details", title: "Portfolio Details", has_dropdown: false },
       { link: "/faq", title: "Faq", has_dropdown: false },
       { link: "/team", title: "Team", has_dropdown: false },
+      { link: "/error", title: "Error Page", has_dropdown: false },
     ],
   },
   {

@@ -1,8 +1,8 @@
 import React from 'react';
-import HeaderTwo from '../../../layouts/headers/HeaderTwo';
-import FooterOne from '../../../layouts/footers/FooterOne';
-import Breadcrumb from '../../../common/Breadcrumb';
-import Keywords from '../../keywords/Keywords';
+import HeaderTwo from '../../layouts/headers/HeaderTwo';
+import FooterOne from '../../layouts/footers/FooterOne';
+import Breadcrumb from '../../common/Breadcrumb';
+import Keywords from '../../components/keywords/Keywords';
 import RecentWorksArea from '../home-1/RecentWorksArea';
 
 const Portfolio = () => {

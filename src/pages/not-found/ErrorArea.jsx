@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ButtonArrow from '../../../common/ButtonArrow';
+import ButtonArrow from '../../common/ButtonArrow';
 
 const ErrorArea = () => {
     return (

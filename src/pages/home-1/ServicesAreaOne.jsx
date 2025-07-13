@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import services_data from "../../../data/services_data";
-import ButtonArrow from "../../../common/ButtonArrow";
-import Subtitle from "../../../common/Subtitle";
-import ServicesItemOne from "../../elements/ServicesItemOne";
+import services_data from "../../data/services_data";
+import ButtonArrow from "../../common/ButtonArrow";
+import Subtitle from "../../common/Subtitle";
+import ServicesItemOne from "../../components/elements/ServicesItemOne";
 
 const ServicesAreaOne = ({ showHeader = true , customClass=""}) => {
   const [activeIndex, setActiveIndex] = useState(0);

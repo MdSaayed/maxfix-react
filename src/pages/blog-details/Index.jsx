@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BlogCommentForm from "./BlogCommentFormArea";
-import FooterOne from "../../../layouts/footers/FooterOne";
-import HeaderTwo from "../../../layouts/headers/HeaderTwo";
+import FooterOne from "../../layouts/footers/FooterOne";
+import HeaderTwo from "../../layouts/headers/HeaderTwo";
 
 const BlogDetails = () => {
   return (

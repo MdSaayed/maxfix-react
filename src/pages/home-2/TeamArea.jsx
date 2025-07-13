@@ -1,8 +1,8 @@
 // src/components/TeamArea.jsx
 import React from "react";
-import useBackground from "../../../hooks/useBackground";
+import useBackground from "../../hooks/useBackground";
 import { Link } from "react-router-dom";
-import TeamGrid from "../../elements/TeamGrid";
+import TeamGrid from "../../components/elements/TeamGrid";
 
 const TeamArea = ({
   showContent = true,

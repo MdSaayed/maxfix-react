@@ -1,5 +1,5 @@
 import React from "react";
-import Subtitle from "../../../common/Subtitle";
+import Subtitle from "../../common/Subtitle";
 
 const TeamAbout = () => {
   return (
