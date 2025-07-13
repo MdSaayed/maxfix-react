@@ -3,7 +3,7 @@ import HeaderTwo from "../../layouts/headers/HeaderTwo";
 import Breadcrumb from "../../common/Breadcrumb";
 import FooterOne from "../../layouts/footers/FooterOne";
 import InsightsArea from "../home-2/InsightsArea";
-import Keywords from "../../components/keywords/Keywords";
+import Keywords from "../../components/keywords/KeywordsArea";
 
 const Blog = () => {
   return (

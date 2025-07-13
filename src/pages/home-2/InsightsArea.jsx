@@ -1,8 +1,8 @@
 import React from "react";
-import articles_data from "../../../data/articles-data";
-import InsightsItem from "../../elements/InsightsItem";
-import Subtitle from "../../../common/Subtitle";
+import articles_data from "../../data/articles-data";
 import { Link } from "react-router-dom";
+import Subtitle from "../../common/Subtitle";
+import InsightsItem from "../../components/elements/InsightsItem";
 
 const InsightsArea = ({
   showItem = 3,

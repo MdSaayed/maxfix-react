@@ -60,7 +60,7 @@ const TestimonialsAreaOne = () => {
                         onMouseLeave={handleMouseLeave}
                         lastCardRef={lastCardRef}
                         />
-                    ))}
+                    ))}  
                 </div>
                 
             </div>

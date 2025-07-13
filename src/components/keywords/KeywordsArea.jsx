@@ -1,6 +1,6 @@
 import React from "react";
 
-const Keywords = () => {
+const KeywordsArea = () => {
   return (
     <section className="keywords">
       <div className="keywords__container container">
@@ -54,4 +54,4 @@ const Keywords = () => {
   );
 };
 
-export default Keywords;
+export default KeywordsArea;

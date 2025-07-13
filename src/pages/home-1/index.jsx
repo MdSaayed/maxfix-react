@@ -1,17 +1,17 @@
 import React from 'react';
-import HeaderOne from '../../../layouts/headers/HeaderOne';
-import FooterOne from '../../../layouts/footers/FooterOne';
+import HeaderOne from '../../layouts/headers/HeaderOne';
 import HeroAreaHomeOne from './HeroAreaHomeOne';
+import KeywordsArea from '../../components/keywords/KeywordsArea';
 import AboutAreaOne from './AboutAreaOne';
-import FactArea from '../../fact/FactArea';
+import FactArea from '../../components/fact/FactArea';
 import ServicesAreaOne from './ServicesAreaOne';
-import ProcessArea from './ProcessArea';
 import RecentWorksArea from './RecentWorksArea';
-import BrandLogos from '../../brand-logos/BrandLogos';
-import BlogArea from '../../blog/BlogArea';
-import FaqArea from '../../faq/FaqArea';
-import TestimonialsAreaOne from '../../testimonials/TestimonialsAreaOne';
-import Keywords from '../../keywords/Keywords';
+import BrandLogos from '../../components/brand-logos/BrandLogos';
+import FaqArea from '../../components/faq/FaqArea';
+import TestimonialsAreaOne from '../../components/testimonials/TestimonialsAreaOne';
+import BlogArea from '../../components/blog/BlogArea';
+import FooterOne from '../../layouts/footers/FooterOne';
+import ProcessArea from './ProcessArea';
 
 const HomeOne = () => {
 
@@ -19,7 +19,7 @@ const HomeOne = () => {
          <>
             <HeaderOne />
             <HeroAreaHomeOne />
-            <Keywords />
+            <KeywordsArea />
             <AboutAreaOne />
             <FactArea />
             <ServicesAreaOne />

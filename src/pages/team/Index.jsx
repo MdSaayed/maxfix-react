@@ -1,20 +1,20 @@
 import React from "react";
-import HeaderTwo from "../../../layouts/headers/HeaderTwo";
-import Breadcrumb from "../../../common/Breadcrumb";
-import FooterOne from "../../../layouts/footers/FooterOne";
-import Keywords from "../../keywords/Keywords";
+import HeaderTwo from "../../layouts/headers/HeaderTwo";
+import Breadcrumb from "../../common/Breadcrumb";
+import KeywordsArea from "../../components/keywords/KeywordsArea";
 import TeamAbout from "./TeamAbout";
-import BrandsArea from "../../brands/BrandsArea";
-import WhyChooseArea from "../about/WhyChooseArea";
-import FaqArea from "../../faq/FaqArea";
 import TeamArea from "../home-2/TeamArea";
+import BrandsArea from "../../components/brands/BrandsArea";
+import WhyChooseArea from "../about/WhyChooseArea";
+import FaqArea from "../../components/faq/FaqArea";
+import FooterOne from "../../layouts/footers/FooterOne";
 
 const Team = () => {
   return (
     <>
       <HeaderTwo />
       <Breadcrumb linkText="Team members" title="Our Talented Team" />
-      <Keywords />
+      <KeywordsArea />
       <TeamAbout />
       <TeamArea
         showContent={false}

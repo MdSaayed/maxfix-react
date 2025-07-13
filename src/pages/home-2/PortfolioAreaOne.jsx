@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import portfolio_data from "../../../data/portfolio-data";
-import PortfolioItemOne from "../../elements/PortfolioItemOne";
+import portfolio_data from "../../data/portfolio-data";
+import PortfolioItemOne from "../../components/elements/PortfolioItemOne";
 
 const PortfolioAreaOne = () => {
   return (

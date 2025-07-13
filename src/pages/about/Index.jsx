@@ -1,20 +1,20 @@
 import React from 'react';
-import HeaderTwo from '../../../layouts/headers/HeaderTwo';
-import FooterOne from '../../../layouts/footers/FooterOne';
-import FaqArea from '../../faq/FaqArea';
-import TeamArea from '../home-2/TeamArea';
-import TestimonialsAreaOne from '../../testimonials/TestimonialsAreaOne';
-import AwardsArea from './AwardsArea';
-import WhyChooseArea from './WhyChooseArea';
-import BrandsArea from '../../brands/BrandsArea';
-import FactArea from '../../fact/FactArea';
-import AboutAreaThree from './AboutAreaThree';
+import HeaderTwo from '../../layouts/headers/HeaderTwo';
 import HeroAboutArea from './HeroAboutArea';
+import AboutAreaThree from './AboutAreaThree';
+import FactArea from '../../components/fact/FactArea';
+import BrandsArea from '../../components/brands/BrandsArea';
+import WhyChooseArea from './WhyChooseArea';
+import TestimonialsAreaOne from '../../components/testimonials/TestimonialsAreaOne';
+import TeamArea from '../home-2/TeamArea';
+import AwardsArea from './AwardsArea';
+import FaqArea from '../../components/faq/FaqArea';
+import FooterOne from '../../layouts/footers/FooterOne';
 
 const About = () => {
     return (
         <>
-            <HeaderTwo />
+            <HeaderTwo /> 
             <HeroAboutArea />
             <AboutAreaThree />
             <FactArea />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import recent_works from "../../../data/recent-works";
-import RecentWorksCard from "../../elements/RecentWorksCard";
+import recent_works from "../../data/recent-works";
+import RecentWorksCard from "../../components/elements/RecentWorksCard";
 
 const RecentWorksArea = ({
   showTitle = true,

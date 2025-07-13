@@ -1,24 +1,24 @@
 import React from 'react';
-import HeaderTwo from '../../../layouts/headers/HeaderTwo';
-import FooterTwo from '../../../layouts/footers/footerTwo';
+import HeaderTwo from '../../layouts/headers/HeaderTwo';
 import HeroAreaTwo from './HeroAreaTwo';
+import KeywordsArea from '../../components/keywords/KeywordsArea';
 import AboutAreaTwo from './AboutAreaTwo';
 import PortfolioAreaOne from './PortfolioAreaOne';
-import FactArea from '../../fact/FactArea';
+import FactArea from '../../components/fact/FactArea';
 import ServicesAreaTwo from './ServicesAreaTwo';
-import BrandsArea from '../../brands/BrandsArea';
-import InsightsArea from './InsightsArea';
-import PricingArea from '../../pricing/PricingArea';
+import BrandsArea from '../../components/brands/BrandsArea';
+import TestimonialsAreaTwo from '../../components/testimonials/TestimonialsAreaTwo';
 import TeamArea from './TeamArea';
-import TestimonialsAreaTwo from '../../testimonials/TestimonialsAreaTwo';
-import Keywords from '../../keywords/Keywords';
+import PricingArea from '../../components/pricing/PricingArea';
+import InsightsArea from './InsightsArea';
+import FooterTwo from '../../layouts/footers/FooterTwo';
 
 const HomeTwo = () => {
     return (
         <>
             <HeaderTwo />
             <HeroAreaTwo />
-            <Keywords />
+            <KeywordsArea />
             <AboutAreaTwo />
             <PortfolioAreaOne />
             <FactArea />

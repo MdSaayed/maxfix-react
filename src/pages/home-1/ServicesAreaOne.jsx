@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import services_data from "../../data/services_data";
-import ButtonArrow from "../../common/ButtonArrow";
 import Subtitle from "../../common/Subtitle";
+import ButtonArrow from "../../common/ButtonArrow";
 import ServicesItemOne from "../../components/elements/ServicesItemOne";
 
 const ServicesAreaOne = ({ showHeader = true , customClass=""}) => {

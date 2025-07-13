@@ -16,7 +16,7 @@ const Breadcrumb = ({ linkText,title }) => {
     <section className="breadcrumbs" style={breadcrumbsBg}>
       <div className="breadcrumbs__container container">
         <div className="breadcrumbs__nav">
-          <Link to="/" className="breadcrumbs__item">
+          <Link to="/" className="breadcrumbs__item">  
             Home
           </Link>
           <span className="breadcrumbs__separator">//</span>

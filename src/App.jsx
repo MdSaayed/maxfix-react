@@ -1,18 +1,18 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import HomeOne from './components/pages/home-1';
-import HomeTwo from './components/pages/home-2';
-import About from './components/pages/about/Index';
-import Services from './components/pages/services/Index';
-import Contact from './components/pages/contact/Index';
-import Blog from './components/pages/blog/Index';
-import Portfolio from './components/pages/portfolio/Index';
-import BlogDetails from './components/pages/blog-details/Index';
-import NotFound from './components/pages/not-found/Index';
-import Faq from './components/pages/faq/Index';
-import Pricing from './components/pages/pricing/Index';
-import Team from './components/pages/team/Index';
-import ServicesDetails from './components/pages/servies-details/Index';
-import PortfolioDetails from './components/pages/portfolio-details/Index';
+import HomeOne from './pages/home-1';
+import HomeTwo from './pages/home-2';
+import About from './pages/about/Index';
+import Services from './pages/services/Index';
+import ServicesDetails from './pages/servies-details/Index';
+import Blog from './pages/blog/Index';
+import BlogDetails from './pages/blog-details/Index';
+import Portfolio from './pages/portfolio/Index';
+import PortfolioDetails from './pages/portfolio-details/Index';
+import Faq from './pages/faq/Index';
+import Pricing from './pages/pricing/Index';
+import Team from './pages/team/Index';
+import Contact from './pages/contact/Index';
+import NotFound from './pages/not-found/Index';
 
 function App() {
 

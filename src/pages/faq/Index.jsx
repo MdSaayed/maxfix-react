@@ -2,7 +2,7 @@ import React from 'react';
 import HeaderTwo from '../../layouts/headers/HeaderTwo';
 import FooterOne from '../../layouts/footers/FooterOne';
 import Breadcrumb from '../../common/Breadcrumb';
-import Keywords from '../../components/keywords/Keywords';
+import Keywords from '../../components/keywords/KeywordsArea';
 import FaqArea from '../../components/faq/FaqArea';
 import VideoArea from '../services/VideoArea';
 

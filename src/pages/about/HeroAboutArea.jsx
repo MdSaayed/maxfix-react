@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import useBackground from "../../../hooks/useBackground";
+import useBackground from "../../hooks/useBackground";
 
 const HeroAboutArea = () => {
   const heroBg = useBackground("./assets/images/about/about-hero-bg.jpg");

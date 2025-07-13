@@ -73,4 +73,4 @@ const HeaderTwo = () => {
     );
 };
 
-export default HeaderTwo;
+export default HeaderTwo;   

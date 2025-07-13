@@ -2,7 +2,7 @@ import React from "react";
 import HeaderTwo from "../../layouts/headers/HeaderTwo";
 import FooterOne from "../../layouts/footers/FooterOne";
 import Breadcrumb from "../../common/Breadcrumb";
-import Keywords from "../../components/keywords/Keywords";
+import Keywords from "../../components/keywords/KeywordsArea";
 import PricingArea from "../../components/pricing/PricingArea";
 import FaqArea from "../../components/faq/FaqArea";
 

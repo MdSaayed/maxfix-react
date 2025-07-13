@@ -1,6 +1,6 @@
 import React from "react";
-import awards_data from "../../../data/awards-data";
-import AwardItem from "../../elements/AwardItem";
+import awards_data from "../../data/awards-data";
+import AwardItem from "../../components/elements/AwardItem";
 
 const AwardsArea = () => {
   return (

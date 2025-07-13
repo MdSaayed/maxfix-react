@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import services_data2 from "../../../data/services-data2";
-import ServicesTab from '../../elements/ServicesTab';
-import ServicesItemTwo from '../../elements/ServicesItemTwo';
-import useBackground from '../../../hooks/useBackground';
+import services_data2 from "../../data/services-data2";
+import useBackground from '../../hooks/useBackground';
+import ServicesTab from '../../components/elements/ServicesTab';
+import ServicesItemTwo from '../../components/elements/ServicesItemTwo';
 
 const ServicesAreaTwo = () => {
   const [activeIndex, setActiveIndex] = useState(0);
