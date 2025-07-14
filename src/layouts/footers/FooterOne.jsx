@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Subtitle from "../../common/Subtitle";
 import BackToTop from "../../common/BackToTop";
 import ScrollToTop from "../../common/ScrollToTop";
+import ContactForm from "../../components/elements/ContactForm";
 
 const FooterOne = () => {
   return (
@@ -47,35 +48,7 @@ const FooterOne = () => {
             </div>
           </div>
 
-          <form className="footer__form">
-            <span className="footer__form-subtitle">maxfix</span>
-            <h4 className="footer__form-title title">
-              Have a project in mind?
-            </h4>
-            <input
-              type="text"
-              className="footer__input"
-              placeholder="Your Name"
-            />
-            <input
-              type="email"
-              className="footer__input"
-              placeholder="Your Email"
-            />
-            <textarea
-              className="footer__textarea"
-              placeholder="Write Your Message"
-              rows="70"
-            ></textarea>
-            <button
-              type="submit"
-              className="footer__submit btn btn-arrow btn-arrow__black"
-            >
-              <span className="footer__submit-text btn-arrow__text">
-                Submit Message
-              </span>
-            </button>
-          </form>
+          <ContactForm />
         </div>
 
         <div className="footer__brand">
