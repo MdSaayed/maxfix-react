@@ -16,15 +16,15 @@ const TeamMember = ({ name, role, image, socials }) => {
           </div>
           <div className="team__socials">
             {socials?.map(({ iconClass, url }, index) => (
-              <a
-                href={url}
+              <Link
+                to={url}
                 className="team__social"
                 key={index}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className={iconClass}></i>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
