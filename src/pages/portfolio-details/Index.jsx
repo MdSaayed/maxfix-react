@@ -3,6 +3,7 @@ import HeaderTwo from "../../layouts/headers/HeaderTwo";
 import PortfolioDetailsHeroArea from "./PortfolioDetailsHeroArea";
 import PortfolioDetailsArea from "./PortfolioDetailsArea";
 import FooterOne from "../../layouts/footers/FooterOne";
+import BackToTop from "../../common/BackToTop";
 
 const PortfolioDetails = () => {
   return (
@@ -11,6 +12,7 @@ const PortfolioDetails = () => {
       <PortfolioDetailsHeroArea />
       <PortfolioDetailsArea />
       <FooterOne />
+      <BackToTop />
     </>
   );
 };

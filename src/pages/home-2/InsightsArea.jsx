@@ -34,28 +34,28 @@ const InsightsArea = ({
 
         {pagination && (
           <>
-            <div class="insights__pagination pagination">
-              <ul class="pagination__list">
-                <li class="pagination__item">
+            <div className="insights__pagination pagination">
+              <ul className="pagination__list">
+                <li className="pagination__item">
                   <Link
                     to="#"
-                    class="pagination__link pagination__link--active"
+                    className="pagination__link pagination__link--active"
                   >
                     1
                   </Link>
                 </li>
-                <li class="pagination__item">
-                  <Link to="#" class="pagination__link">
+                <li className="pagination__item">
+                  <Link to="#" className="pagination__link">
                     2
                   </Link>
                 </li>
-                <li class="pagination__item">
-                  <Link to="#" class="pagination__link">
+                <li className="pagination__item">
+                  <Link to="#" className="pagination__link">
                     3
                   </Link>
                 </li>
-                <li class="pagination__item">
-                  <Link to="#" class="pagination__link pagination__link--arrow">
+                <li className="pagination__item">
+                  <Link to="#" className="pagination__link pagination__link--arrow">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="12"

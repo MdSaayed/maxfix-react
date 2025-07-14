@@ -491,18 +491,29 @@ html.lenis body {
   font-size: 14px;
 }
 
-.menu-item-has-children > a::after {
-  content: "\f078";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  font-size: 14px;
-  margin-left: 5px;
+.menu-item-has-children > a{
   display: inline-block;
-  transition: transform 0.3s ease;
+  margin-right: 1rem;
 }
 
-.menu-item-has-children:hover > a::after {
-  transform: rotate(180deg);
+.main-menu .menu-item-has-children > a::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: rotate(-135deg);
+  transform-origin: center center;
+  border-top: 1px solid var(--bg-white);
+  border-left: 1px solid var(--bg-white);
+  display: inline-block;
+  transition: transform 0.3s ease;
+  margin-top: -6px; 
+}
+
+.main-menu .menu-item-has-children:hover > a::after {
+  transform: rotate(45deg);
 }
 
 .main-menu .sub-menu {
@@ -580,20 +591,28 @@ html.lenis body {
   transform: translateX(0);
 }
 
+.sub-menu .menu-item-has-children > a{
+  position: relative;
+}
+
 .sub-menu .menu-item-has-children > a::after {
-  content: "\f054";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  font-size: 14px;
-  margin-left: 5px;
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: rotate(-135deg);
+  transform-origin: center center;
+  border-top: 1px solid var(--bg-white);
+  border-left: 1px solid var(--bg-white);
   display: inline-block;
   transition: transform 0.3s ease;
-  position: absolute;
-  right: 5px;
+  margin-top: -6px; 
 }
 
 .sub-menu .menu-item-has-children:hover > a::after {
-  transform: rotate(90deg);
+  transform: rotate(45deg);
 }
 
 .main-menu .menu-item > a:hover {
@@ -808,6 +827,10 @@ html.lenis body {
   font-size: 18px;
   line-height: 1.5;
   text-decoration: none;
+}
+
+.mobile-menu__contact-link svg{
+  font-size: 1.4rem;
 }
 
 /* =============================
@@ -4719,11 +4742,10 @@ span.testimonials__item-index {
   right: 10px;
 }
 
-
-  .hero__slider-button-prev svg,
-  .hero__slider-button-next svg {
-    fill: var(--color-primary);
-  }
+.hero__slider-button-prev svg,
+.hero__slider-button-next svg {
+  fill: var(--color-primary);
+}
 
 .swiper-button-prev svg,
 .swiper-button-next svg {

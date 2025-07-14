@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import GLightbox from "glightbox";
+import "glightbox/dist/css/glightbox.min.css";
 
 const VideoSliderArea = () => {
+  useEffect(() => {
+    const lightbox = GLightbox({
+      selector: ".glightbox",
+    });
+
+    return () => {
+      lightbox.destroy();
+    };
+  }, []);
+
   return (
     <div className="video-slider">
       <div className="video-slider__container container">
@@ -55,8 +67,9 @@ const VideoSliderArea = () => {
                 className="video-slider__thumb"
               />
               <a
-                href="https://www.w3schools.com/html/movie.mp4"
+                href="https://youtu.be/szuAo5azIvg?si=UENgGR6v1PakyMvJ"
                 className="video-slider__play-btn glightbox"
+                data-type="video"
               >
                 <svg width="180" height="180" viewBox="0 0 180 180">
                   <circle cx="90" cy="90" r="80" fill="white" />

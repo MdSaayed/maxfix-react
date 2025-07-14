@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import GLightbox from "glightbox";
 import "glightbox/dist/css/glightbox.min.css";
 
@@ -21,11 +20,7 @@ const VideoArea = ({
     <div className="video-area">
       <div className="video-area__container container">
         <div className="video-area__thumb-wrapper">
-          <img
-            src={img}
-            alt="Intro Video"
-            className="video-area__thumb"
-          />
+          <img src={img} alt="Intro Video" className="video-area__thumb" />
           <a
             href={videoLink}
             className="video-area__play-btn glightbox"

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import BlogCommentForm from "./BlogCommentFormArea";
 import FooterOne from "../../layouts/footers/FooterOne";
 import HeaderTwo from "../../layouts/headers/HeaderTwo";
+import BackToTop from "../../common/BackToTop";
 
 const BlogDetails = () => {
   return (
@@ -299,6 +300,7 @@ const BlogDetails = () => {
         </div>
       </section>
       <FooterOne />
+      <BackToTop />
     </>
   );
 };

@@ -4,6 +4,7 @@ import ServicesHeroArea from "./ServicesHeroArea";
 import ServicesDetailsArea from "./ServicesDetailsArea";
 import VideoSliderArea from "./VideoSliderArea";
 import FooterOne from "../../layouts/footers/FooterOne";
+import BackToTop from "../../common/BackToTop";
 
 const ServicesDetails = () => {
   return (
@@ -11,8 +12,9 @@ const ServicesDetails = () => {
       <HeaderTwo />
       <ServicesHeroArea />
       <ServicesDetailsArea />
-      <VideoSliderArea/>
+      <VideoSliderArea />
       <FooterOne />
+      <BackToTop />
     </>
   );
 };

@@ -3,6 +3,7 @@ import ErrorArea from "./ErrorArea";
 import HeaderTwo from "../../layouts/headers/HeaderTwo";
 import FooterOne from "../../layouts/footers/FooterOne";
 import ErrorMarquee from "./ErrorMarquee";
+import BackToTop from "../../common/BackToTop";
 
 const NotFound = () => {
   return (
@@ -11,6 +12,7 @@ const NotFound = () => {
       <ErrorArea />
       <ErrorMarquee />
       <FooterOne />
+      <BackToTop />
     </>
   );
 };

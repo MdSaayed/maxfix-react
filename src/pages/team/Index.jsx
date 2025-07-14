@@ -8,6 +8,7 @@ import BrandsArea from "../../components/brands/BrandsArea";
 import WhyChooseArea from "../about/WhyChooseArea";
 import FaqArea from "../../components/faq/FaqArea";
 import FooterOne from "../../layouts/footers/FooterOne";
+import BackToTop from "../../common/BackToTop";
 
 const Team = () => {
   return (
@@ -25,6 +26,7 @@ const Team = () => {
       <WhyChooseArea />
       <FaqArea />
       <FooterOne />
+      <BackToTop />
     </>
   );
 };
