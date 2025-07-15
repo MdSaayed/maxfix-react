@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const TestimonialsItemOne = ({
   testimonial,
@@ -7,12 +7,17 @@ const TestimonialsItemOne = ({
   onMouseEnter,
   onMouseLeave,
   lastCardRef,
+  cardRef,
 }) => {
   return (
-    <div className="testimonial-card"
+    <div
+      className="testimonial-card"
       onMouseEnter={() => onMouseEnter(index)}
       onMouseLeave={() => onMouseLeave(index)}
-      ref={isLast ? lastCardRef : null}
+      ref={(el) => {
+        cardRef(el);
+        if (isLast) lastCardRef.current = el;
+      }}
     >
       <svg width="53" height="53" viewBox="0 0 53 53" fill="none">
         <path

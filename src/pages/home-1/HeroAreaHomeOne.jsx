@@ -1,113 +1,111 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import { useAnimations } from "../../hooks/useAnimations";
 
 const HeroAreaHomeOne = () => {
-  const sectionRef = useRef(null);
+  const { animateRepeatedly } = useAnimations();
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const createScrollAnimation = (selector, fromVars, toVars) => {
-        gsap.fromTo(selector, fromVars, {
-          ...toVars,
-          scrollTrigger: {
-            trigger: selector,
-            start: "top 85%",
-            toggleActions: "play reset play reset",
-          },
-        });
-      };
+    animateRepeatedly(
+      ".hero__image--left",
+      { x: -120, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+    );
+    animateRepeatedly(
+      ".hero__brand",
+      { y: -60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+    );
+    animateRepeatedly(
+      ".hero__video-icon-wrap",
+      { scale: 0.4, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" }
+    );
+    animateRepeatedly(
+      ".hero__stats",
+      { x: 80, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+    );
+    animateRepeatedly(
+      ".hero__tagline",
+      { scale: 0.8, opacity: 0, transformOrigin: "left center" },
+      { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" }
+    );
+    animateRepeatedly(
+      ".hero__text",
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+    );
 
-      createScrollAnimation(
-        ".hero__image--left",
-        { x: -120, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1.2, ease: "power4.out" }
-      );
-      createScrollAnimation(
-        ".hero__brand",
-        { y: -60, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" }
-      );
-      createScrollAnimation(
-        ".hero__video-icon-wrap",
-        { scale: 0.4, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1.2, ease: "power4.out" }
-      );
-      createScrollAnimation(
-        ".hero__stats",
-        { x: 80, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1.2, ease: "power4.out" }
-      );
-      createScrollAnimation(
-        ".hero__tagline",
-        { scale: 0.8, opacity: 0, transformOrigin: "left center" },
-        { scale: 1, opacity: 1, duration: 1.2, ease: "power4.out" }
-      );
-      createScrollAnimation(
-        ".hero__text",
-        { y: 60, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1.2, ease: "power4.out" }
-      );
-      createScrollAnimation(
-        ".hero__image--right",
-        { x: 120, opacity: 0 },
-        { x: 0, opacity: 1, duration: 1.2, ease: "power4.out" }
-      );
-
-      gsap.utils.toArray(".hero__line").forEach((line, i) => {
+    // Arrow scroll animation
+    ScrollTrigger.create({
+      trigger: ".hero__arrow",
+      start: "top 90%",
+      onEnter: () => {
         gsap.fromTo(
-          line,
-          { scaleY: 0, opacity: 0, transformOrigin: "top center" },
+          ".hero__arrow",
+          { y: 20, opacity: 0 },
           {
-            scaleY: 1,
+            y: 0,
             opacity: 1,
-            duration: 1,
+            duration: 1.6,
             ease: "power4.out",
-            delay: i * 0.2,
-            scrollTrigger: {
-              trigger: line,
-              start: "top 90%",
-              toggleActions: "play reset play reset",
+            onComplete: () => {
+              gsap.to(".hero__arrow", {
+                y: 30,
+                repeat: -1,
+                yoyo: true,
+                duration: 1.2,
+                ease: "sine.inOut",
+              });
             },
           }
         );
-      });
+      },
+      onEnterBack: () => {
+        gsap.fromTo(
+          ".hero__arrow",
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.6,
+            ease: "power4.out",
+            onComplete: () => {
+              gsap.to(".hero__arrow", {
+                y: 30,
+                repeat: -1,
+                yoyo: true,
+                duration: 1.2,
+                ease: "sine.inOut",
+              });
+            },
+          }
+        );
+      },
+    });
 
-      ScrollTrigger.create({
-        trigger: ".hero__arrow",
-        start: "top 90%",
-        toggleActions: "play reset play reset",
-        onEnter: () => {
-          gsap.fromTo(
-            ".hero__arrow",
-            { y: 20, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1,
-              ease: "power4.out",
-              onComplete: () => {
-                gsap.to(".hero__arrow", {
-                  y: 30,
-                  repeat: -1,
-                  yoyo: true,
-                  duration: 1.2,
-                  ease: "sine.inOut",
-                });
-              },
-            }
-          );
-        },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
+    animateRepeatedly(
+      ".hero__image--right",
+      { x: 120, opacity: 0 },
+      { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
+    );
+    animateRepeatedly(
+      ".hero__line",
+      { scaleY: 0, opacity: 0, transformOrigin: "top center" },
+      {
+        scaleY: 1,
+        opacity: 1,
+        duration: 1.6,
+        ease: "power4.out",
+        stagger: 0.3,
+      }
+    );
   }, []);
 
   return (
-    <section className="hero hero--one" ref={sectionRef}>
+    <section className="hero hero--one">
       <div className="hero__container container">
         <div className="hero__content-area">
           <div className="hero__image hero__image--left">

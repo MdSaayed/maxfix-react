@@ -1,96 +1,87 @@
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { gsap } from "gsap";
 import Subtitle from "../../common/Subtitle";
-import { useGsapAnimations } from "../../hooks/useGsapAnimations";
+import { useAnimations } from "../../hooks/useAnimations";
 
 const AboutAreaOne = () => {
-  const sectionRef = useRef(null);
+  const { animateOnScroll } = useAnimations();
+  const ease = "power4.out";
+  const duration = 2.2;
 
-  useGsapAnimations(
-    [
-      {
-        type: "scroll",
-        selector: ".about__subtitle-wrap",
-        from: { y: -30, opacity: 0 },
-        to: { y: 0, opacity: 1, duration: 2.2, ease: "power4.out" },
-      },
-      {
-        type: "scroll",
-        selector: ".about__title",
-        from: { y: 50, opacity: 0 },
-        to: { y: 0, opacity: 1, duration: 2.2, ease: "power4.out" },
-      },
-      {
-        type: "scroll",
-        selector: ".about__desc",
-        from: { x: -100, opacity: 0 },
-        to: { x: 0, opacity: 1, duration: 2.2, ease: "power4.out" },
-      },
-      {
-        type: "scroll",
-        selector: ".about__testimonial",
-        from: { x: -60, opacity: 0 },
-        to: { x: 0, opacity: 1, duration: 2.2, ease: "power4.out" },
-      },
-      {
-        type: "scroll",
-        selector: ".about__image--left",
-        from: { x: -150, opacity: 0 },
-        to: { x: 0, opacity: 1, duration: 2.2, ease: "power4.out" },
-      },
-      {
-        type: "scroll",
-        selector: ".about__image--right",
-        from: { x: 150, opacity: 0 },
-        to: { x: 0, opacity: 1, duration: 2.2, ease: "power4.out" },
-      },
-      {
-        type: "scroll",
-        selector: ".about__button",
-        from: { y: 40, scale: 0.8, opacity: 0 },
-        to: {
-          y: 0,
-          scale: 1,
-          opacity: 1,
-          duration: 2.2,
-          ease: "power4.out",
-          onComplete: () => {
-            gsap.to(".about__button", {
-              scale: 1.05,
-              repeat: -1,
-              yoyo: true,
-              duration: 1.8,
-              ease: "sine.inOut",
-            });
-          },
+  useEffect(() => {
+    animateOnScroll(".about__subtitle-wrap", {
+      from: { y: -30, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease },
+    });
+
+    animateOnScroll(".about__title", {
+      from: { y: 50, opacity: 0 },
+      to: { y: 0, opacity: 1, duration, ease },
+    });
+
+    animateOnScroll(".about__desc", {
+      from: { x: -100, opacity: 0 },
+      to: { x: 0, opacity: 1, duration, ease },
+    });
+
+    animateOnScroll(".about__testimonial", {
+      from: { x: -60, opacity: 0 },
+      to: { x: 0, opacity: 1, duration, ease },
+    });
+
+    animateOnScroll(".about__image--left", {
+      from: { x: -150, opacity: 0 },
+      to: { x: 0, opacity: 1, duration, ease },
+    });
+
+    animateOnScroll(".about__image--right", {
+      from: { x: 150, opacity: 0 },
+      to: { x: 0, opacity: 1, duration, ease },
+    });
+
+    animateOnScroll(".about__button", {
+      from: { y: 40, scale: 0.8, opacity: 0 },
+      to: {
+        y: 0,
+        scale: 1,
+        opacity: 1,
+        duration,
+        ease,
+        onComplete: () => {
+          gsap.to(".about__button", {
+            scale: 1.05,
+            repeat: -1,
+            yoyo: true,
+            duration: 1.8,
+            ease: "sine.inOut",
+          });
         },
       },
-      {
-        type: "scroll",
-        selector: ".about__hand",
-        from: { y: 30, opacity: 0 },
-        to: {
-          y: 0,
-          opacity: 1,
-          duration: 2.2,
-          ease: "power4.out",
-          onComplete: () => {
-            gsap.to(".about__hand", {
-              y: 10,
-              repeat: -1,
-              yoyo: true,
-              duration: 2.4,
-              ease: "sine.inOut",
-            });
-          },
+    });
+
+    animateOnScroll(".about__hand", {
+      from: { y: 30, opacity: 0 },
+      to: {
+        y: 0,
+        opacity: 1,
+        duration,
+        ease,
+        onComplete: () => {
+          gsap.to(".about__hand", {
+            y: 10,
+            repeat: -1,
+            yoyo: true,
+            duration: 2.4,
+            ease: "sine.inOut",
+          });
         },
       },
-    ],
-    sectionRef
-  );
+    });
+  }, []);
 
   return (
-    <section className="about about--one" ref={sectionRef}>
+    <section className="about about--one">
       <div className="about__container container">
         <div className="about__title-wrap">
           <Subtitle text="Let's talk" wrapperClass="about__subtitle-wrap" />

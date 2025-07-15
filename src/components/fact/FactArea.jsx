@@ -1,26 +1,22 @@
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
 import fact_data from "../../data/fact-data";
 import FactItem from "../elements/FactItem";
-import { useGsapAnimations } from "../../hooks/useGsapAnimations";
+import { useAnimations } from "../../hooks/useAnimations";
 
 const FactArea = () => {
-  const sectionRef = useRef(null);
+  const { animateGroupItems } = useAnimations();
 
-  useGsapAnimations(
-    [
-      {
-        type: "group",
-        selector: ".fact__item",
-        from: { y: 80, opacity: 0 },
-        to: { y: 0, opacity: 1, duration: 2, ease: "power4.out" },
-        stagger: 0.1,
-      },
-    ],
-    sectionRef
-  );
+  useEffect(() => {
+    animateGroupItems(
+      ".fact__item",
+      { y: 80, opacity: 0 },
+      { y: 0, opacity: 1, duration: 2, ease: "power4.out" },
+      0.1
+    );
+  }, []);
 
   return (
-    <section className="fact" ref={sectionRef}>
+    <section className="fact">
       <div className="fact__container container">
         <h2 className="fact__title visually-hidden">Fact</h2>
         <div className="fact__grid">

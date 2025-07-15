@@ -1,59 +1,91 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import faq_data from "../../data/faq-data";
 import FaqItem from "../elements/FaqItem";
-import { Link } from "react-router-dom";
-import { useGsapAnimations } from "../../hooks/useGsapAnimations";
 import ButtonArrow from "../../common/ButtonArrow";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const FaqArea = () => {
-  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const buttonRef = useRef(null);
+  const sidebarRef = useRef(null);
+  const faqItemRefs = useRef([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // ✅ Animation Logic
-  useGsapAnimations(
-    [
+  useEffect(() => {
+    gsap.fromTo(
+      [titleRef.current, subtitleRef.current, buttonRef.current].filter(
+        Boolean
+      ),
+      { y: 60, opacity: 0 },
       {
-        type: "group",
-        trigger: ".faq__sidebar",
-        selector: [".faq__title", ".faq__subtitle", ".faq__button"],
-        from: { y: 60, opacity: 0 },
-        to: {
-          y: 0,
-          opacity: 1,
-          duration: 1.6,
-          ease: "power4.out",
-          stagger: 0.25,
+        y: 0,
+        opacity: 1,
+        duration: 1.6,
+        ease: "power4.out",
+        stagger: 0.25,
+        scrollTrigger: {
+          trigger: sidebarRef.current,
+          start: "top 90%",
+          toggleActions: "play none none reset",
         },
-      },
-      // Loop over FAQ items as individual scroll triggers
-      ...faq_data.map((_, index) => ({
-        type: "scroll",
-        selector: `.faq__item:nth-child(${index + 1})`,
-        from: { y: 70, opacity: 0 },
-        to: {
-          y: 0,
-          opacity: 1,
-          duration: 1.5,
-          ease: "power4.out",
-          delay: index * 0.1,
+      }
+    );
+
+    faqItemRefs.current.forEach((item, index) => {
+      ScrollTrigger.create({
+        trigger: item,
+        start: "top 95%",
+        onEnter: () => {
+          gsap.fromTo(
+            item,
+            { y: 70, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: "power4.out",
+              delay: index * 0.1,
+            }
+          );
         },
-      })),
-    ],
-    sectionRef
-  );
+        onEnterBack: () => {
+          gsap.fromTo(
+            item,
+            { y: 80, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 1.5,
+              ease: "power4.out",
+              delay: index * 0.1,
+            }
+          );
+        },
+      });
+    });
+  }, []);
 
   return (
     <section className="faq">
-      <div className="faq__container container" ref={sectionRef}>
-        <div className="faq__sidebar">
-          <h2 className="faq__title title-lg">FAQ</h2>
+      <div className="faq__container container">
+        <div className="faq__sidebar" ref={sidebarRef}>
+          <h2 className="faq__title title-lg" ref={titleRef}>
+            FAQ
+          </h2>
           <div className="faq__sidebar-text-wrap">
-            <p className="faq__subtitle">Having Another Question?</p>
+            <p className="faq__subtitle" ref={subtitleRef}>
+              Having Another Question?
+            </p>
             <ButtonArrow
               link="#"
               text="Get In Touch"
               variant="black"
               className="faq__button"
+              ref={buttonRef}
             />
           </div>
         </div>
@@ -66,6 +98,7 @@ const FaqArea = () => {
               index={index}
               activeIndex={activeIndex}
               setActiveIndex={setActiveIndex}
+              ref={(el) => (faqItemRefs.current[index] = el)}
             />
           ))}
         </div>

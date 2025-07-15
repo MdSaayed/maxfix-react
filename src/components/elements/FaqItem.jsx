@@ -1,15 +1,15 @@
 import { useEffect, useRef } from "react";
 
-const FaqItem = ({ item, index, activeIndex, setActiveIndex }) => {
+const FaqItem = ({ item, index, activeIndex, setActiveIndex, ref }) => {
   const answerRef = useRef(null);
   const isActive = index === activeIndex;
 
   useEffect(() => {
     if (answerRef.current) {
       if (isActive) {
-        answerRef.current.style.height = answerRef.current.scrollHeight + 'px';
+        answerRef.current.style.height = answerRef.current.scrollHeight + "px";
       } else {
-        answerRef.current.style.height = '0px';
+        answerRef.current.style.height = "0px";
       }
     }
   }, [isActive]);
@@ -19,9 +19,14 @@ const FaqItem = ({ item, index, activeIndex, setActiveIndex }) => {
   };
 
   return (
-    <div className={`faq__item ${isActive ? 'faq__item--active' : ''}`}>
+    <div
+      className={`faq__item ${isActive ? "faq__item--active" : ""}`}
+      ref={ref}
+    >
       <div className="faq__question">
-        <span className="faq__number">{String(index + 1).padStart(3, '0')}.</span>
+        <span className="faq__number">
+          {String(index + 1).padStart(3, "0")}.
+        </span>
         <div className="faq__question-inner">
           <h3 className="faq__question-text">{item.question}</h3>
           <button className="faq__toggle" onClick={handleToggle}>

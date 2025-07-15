@@ -6,11 +6,12 @@ const ButtonArrow = ({
   variant = "white",
   text = "Button Text",
   className = "",
+  ref = {},
 }) => {
   const btnStyle = `btn-arrow ${variant === "black" ? "btn-arrow__black" : ""}`;
 
   return (
-    <Link to={link} className={`${className} ${btnStyle}`}>
+    <Link to={link} className={`${className} ${btnStyle}`} ref={ref}>
       <span className="btn-arrow__text">{text}</span>
     </Link>
   );

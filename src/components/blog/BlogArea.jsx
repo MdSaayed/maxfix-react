@@ -1,55 +1,34 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import blog_data from "../../data/blog-data";
 import useBackground from "../../hooks/useBackground";
 import BlogCard from "../elements/BlogCard";
 import ButtonArrow from "../../common/ButtonArrow";
 import Subtitle from "../../common/Subtitle";
-import { useGsapAnimations } from "../../hooks/useGsapAnimations";
+import { useAnimations } from "../../hooks/useAnimations";
 
 const BlogArea = () => {
   const bgStyle = useBackground("./assets/images/shape/blog-bg.png");
-  const sectionRef = useRef(null);
 
-  useGsapAnimations(
-    [
-      {
-        type: "scroll",
-        trigger: ".blog__title-wrap",
-        selector: ".blog__subtitle-wrap",
-        from: { y: 40, opacity: 0 },
-        to: { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" },
-        delay: 0,
-      },
-      {
-        type: "scroll",
-        trigger: ".blog__title-wrap",
-        selector: ".blog__heading",
-        from: { y: 40, opacity: 0 },
-        to: { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" },
-        delay: 0.1,
-      },
-      {
-        type: "scroll",
-        trigger: ".blog__title-wrap",
-        selector: ".blog__btn",
-        from: { y: 40, opacity: 0 },
-        to: { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" },
-        delay: 0.2,
-      },
-      {
-        type: "scroll",
-        selector: ".blog__item",
-        from: { y: 150, opacity: 0 },
-        to: { y: 0, opacity: 1, duration: 1.5, ease: "power4.out" },
-        stagger: 0.3,
-        group: true,
-      },
-    ],
-    sectionRef
-  );
+  // Animation
+  const { fadeUpRepeat, animateGroupItems } = useAnimations();
+  const ease = "power4.out";
+  useEffect(() => {
+    fadeUpRepeat(".blog__subtitle-wrap", 0);
+
+    fadeUpRepeat(".blog__heading", 0.1);
+
+    fadeUpRepeat(".blog__btn", 0.2);
+
+    animateGroupItems(
+      ".blog__item",
+      { y: 150, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.5, ease },
+      0.1
+    );
+  }, []);
 
   return (
-    <section className="blog" style={bgStyle} ref={sectionRef}>
+    <section className="blog" style={bgStyle}>
       <div className="blog__container container">
         <div className="blog__title-wrap title-wrap__flex">
           <Subtitle

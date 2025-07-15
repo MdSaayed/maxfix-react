@@ -1,46 +1,45 @@
-import React, { useRef } from "react";
+import React, { useEffect } from "react";
 import steps_data from "../../data/steps-data";
 import Subtitle from "../../common/Subtitle";
 import ButtonArrow from "../../common/ButtonArrow";
 import ProcessStep from "../../components/elements/ProcessStep";
-import { useGsapAnimations } from "../../hooks/useGsapAnimations";
+import { useAnimations } from "../../hooks/useAnimations";
 
 const ProcessArea = () => {
-  const sectionRef = useRef(null);
+  // Animation
+  const duration = 2.2;
+  const ease = "power4.out";
+  const { animateRepeatedly, animateGroupItems } = useAnimations();
 
-  useGsapAnimations(
-    [
-      {
-        type: "scroll",
-        selector: ".process__subtitle",
-        from: { y: -40, opacity: 0 },
-        to: { y: 0, opacity: 1, duration: 2.2, ease: "power4.out" },
-      },
-      {
-        type: "scroll",
-        selector: ".process__title",
-        from: { y: 60, opacity: 0 },
-        to: { y: 0, opacity: 1, duration: 2.2, ease: "power4.out" },
-      },
-      {
-        type: "scroll",
-        selector: ".process__btn",
-        from: { scale: 0.9, opacity: 0 },
-        to: { scale: 1, opacity: 1, duration: 2.2, ease: "power4.out" },
-      },
-      {
-        type: "group",
-        selector: ".process__step",
-        from: { y: 150, opacity: 0 },
-        to: { y: 0, opacity: 1, duration: 1.5, ease: "power4.out" },
-        stagger: 0.1,
-      },
-    ],
-    sectionRef
-  );
+  useEffect(() => {
+    animateRepeatedly(
+      ".process__subtitle-wrap",
+      { y: -40, opacity: 0 },
+      { y: 0, opacity: 1, duration, ease }
+    );
+
+    animateRepeatedly(
+      ".process__title",
+      { y: 60, opacity: 0 },
+      { y: 0, opacity: 1, duration, ease }
+    );
+
+    animateRepeatedly(
+      ".process__btn",
+      { scale: 0.9, opacity: 0 },
+      { scale: 1, opacity: 1, duration, ease }
+    );
+
+    animateGroupItems(
+      ".process__step",
+      { y: 150, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.5, ease },
+      0.1
+    );
+  }, []);
 
   return (
-    <section className="process process--one" ref={sectionRef}> 
+    <section className="process process--one">
       <div className="container__process container">
         <div className="process__content-area">
           <div className="process__intro">
@@ -48,6 +47,7 @@ const ProcessArea = () => {
               <Subtitle
                 variant="secondary"
                 text="Our Creative Process"
+                wrapperClass="process__subtitle-wrap"
                 subtitleClass="process__subtitle"
               />
               <h2 className="process__title title-lg">
