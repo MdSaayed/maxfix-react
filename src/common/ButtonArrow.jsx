@@ -1,8 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const ButtonArrow = ({ link = "#", variant = "white", text = "Button Text", className="" }) => {
-  const btnStyle = `btn-arrow ${variant === 'black' ? 'btn-arrow__black' : ''}`;
+const ButtonArrow = ({
+  link = "#",
+  variant = "white",
+  text = "Button Text",
+  className = "",
+}) => {
+  const btnStyle = `btn-arrow ${variant === "black" ? "btn-arrow__black" : ""}`;
 
   return (
     <Link to={link} className={`${className} ${btnStyle}`}>
@@ -10,5 +15,5 @@ const ButtonArrow = ({ link = "#", variant = "white", text = "Button Text", clas
     </Link>
   );
 };
- 
+
 export default ButtonArrow;

@@ -26,11 +26,11 @@ const HomeOne = () => {
       <ProcessArea />
       <RecentWorksArea />
       <BrandLogos />
-      <FaqArea />
       <TestimonialsAreaOne />
+      <FaqArea />
       <BlogArea />
       <FooterOne />
-      <BackToTop />
+      <BackToTop /> 
     </>
   );
 };

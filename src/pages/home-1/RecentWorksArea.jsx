@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import recent_works from "../../data/recent-works";
 import RecentWorksCard from "../../components/elements/RecentWorksCard";
+import { useGsapAnimations } from "../../hooks/useGsapAnimations";
 
 const RecentWorksArea = ({
   showTitle = true,
@@ -9,6 +10,7 @@ const RecentWorksArea = ({
   showBtn = true,
   showItem = 6,
 }) => {
+  const sectionRef = useRef(null);
   const [activeCategory, setActiveCategory] = useState("All");
   const [items, setItems] = useState(recent_works);
   const categories = [
@@ -28,8 +30,47 @@ const RecentWorksArea = ({
     }
   };
 
+  // Animation
+  useGsapAnimations(
+    [
+      {
+        type: "scroll",
+        selector: ".recent-works__title-wrap",
+        from: { y: 60, opacity: 0 },
+        to: { y: 0, opacity: 1, duration: 2, ease: "power4.out" },
+      },
+      {
+        type: "scroll",
+        selector: ".recent-work__filters",
+        from: { y: 40, opacity: 0 },
+        to: { y: 0, opacity: 1, duration: 1.8, ease: "power4.out" },
+      },
+      {
+        type: "group",
+        selector: ".recent-work__filter-item",
+        from: { y: 40, opacity: 0 },
+        to: { y: 0, opacity: 1, duration: 1.5, ease: "power4.out" },
+        stagger: 0.1,
+      },
+      {
+        type: "group",
+        selector: ".work-card",
+        from: { y: 80, opacity: 0 },
+        to: { y: 0, opacity: 1, duration: 1.8, ease: "power4.out" },
+        stagger: 0.1,
+      },
+      {
+        type: "scroll",
+        selector: ".recent-works__cta",
+        from: { y: 30, opacity: 0 },
+        to: { y: 0, opacity: 1, duration: 2, ease: "power4.out" },
+      },
+    ],
+    sectionRef
+  );
+
   return (
-    <section className="recent-works">
+    <section className="recent-works" ref={sectionRef}>
       <div className="recent-work__container container">
         {showTitle && (
           <>

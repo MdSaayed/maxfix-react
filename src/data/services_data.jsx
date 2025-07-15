@@ -15,8 +15,8 @@ const services_data = [
       "Elevate your brand’s digital presence with strategic content, community engagement, and high-performance social media campaigns designed to attract, retain, and convert your target audience.",
     tags: ["Strategy", "Engagement", "Content Creation"],
     images: [
-      "./assets/images/services/services-11.png",
-      "./assets/images/services/services-12.png",
+      "./assets/images/services/services-11.jpg",
+      "./assets/images/services/services-12.jpg",
     ],
   },
   {
@@ -25,8 +25,8 @@ const services_data = [
       "We build fast, secure, and scalable websites and web apps using modern frameworks tailored for business performance and user experience, with clean code and custom features.",
     tags: ["Backend", "Frontend", "CMS Integration"],
     images: [
-      "./assets/images/services/services-5.png",
-      "./assets/images/services/services-6.png",
+      "./assets/images/services/services-5.jpg",
+      "./assets/images/services/services-6.jpg",
     ],
   },
   {
@@ -36,7 +36,7 @@ const services_data = [
     tags: ["UI/UX", "Graphic Design", "Prototyping"],
     images: [
       "./assets/images/services/services-9.png",
-      "./assets/images/services/services-10.png",
+      "./assets/images/services/services-10.jpg",
     ],
   },
   {
@@ -45,8 +45,8 @@ const services_data = [
       "We offer professional-grade digital printing services for marketing materials, packaging, and branded collateral of all formats, using vivid color reproduction and premium finishes.",
     tags: ["Offset Print", "Brochures", "Packaging"],
     images: [
-      "./assets/images/services/services-7.png",
-      "./assets/images/services/services-8.png",
+      "./assets/images/services/services-7.jpg",
+      "./assets/images/services/services-8.jpg",
     ],
   },
 ];
