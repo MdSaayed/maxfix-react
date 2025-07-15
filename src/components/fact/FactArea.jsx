@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
-import fact_data from '../../data/fact-data';
-import FactItem from '../elements/FactItem';
-import { useGsapAnimations } from '../../hooks/useGsapAnimations';
+import React, { useRef } from "react";
+import fact_data from "../../data/fact-data";
+import FactItem from "../elements/FactItem";
+import { useGsapAnimations } from "../../hooks/useGsapAnimations";
 
 const FactArea = () => {
   const sectionRef = useRef(null);
@@ -9,10 +9,10 @@ const FactArea = () => {
   useGsapAnimations(
     [
       {
-        type: 'group',
-        selector: '.fact__item',
+        type: "group",
+        selector: ".fact__item",
         from: { y: 80, opacity: 0 },
-        to: { y: 0, opacity: 1, duration: 2, ease: 'power4.out' },
+        to: { y: 0, opacity: 1, duration: 2, ease: "power4.out" },
         stagger: 0.1,
       },
     ],

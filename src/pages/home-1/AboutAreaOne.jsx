@@ -93,7 +93,7 @@ const AboutAreaOne = () => {
     <section className="about about--one" ref={sectionRef}>
       <div className="about__container container">
         <div className="about__title-wrap">
-          <Subtitle text="Let's talk" />
+          <Subtitle text="Let's talk" wrapperClass="about__subtitle-wrap" />
           <h2 className="about__title title">
             We create digital designs that help brands move faster & convert
             better. Your business deserves more than just a website. It needs

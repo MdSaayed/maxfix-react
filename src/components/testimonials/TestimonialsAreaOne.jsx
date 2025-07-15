@@ -77,9 +77,17 @@ const TestimonialsAreaOne = () => {
     <section className="testimonials testimonials--one" ref={sectionRef}>
       <div className="testimonials__container container">
         <div className="testimonials__title-wrap title-wrap__flex">
-          <Subtitle text="Testimonials" />
+          <Subtitle
+            text="Testimonials"
+            wrapperClass="testimonials__label-wrap subtitle-wrap"
+            subtitleClass="testimonials__label"
+          />
           <h2 className="testimonials__title title-lg">Clients Reviews</h2>
-          <ButtonArrow link="/services" text="View All Services" className="testimonials__btn" />
+          <ButtonArrow
+            link="/services"
+            text="View All Services"
+            className="testimonials__btn"
+          />
         </div>
 
         <div className="testimonials__list" ref={listRef}>

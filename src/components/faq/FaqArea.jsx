@@ -13,7 +13,7 @@ const FaqArea = () => {
   useGsapAnimations(
     [
       {
-        type: "scroll",
+        type: "group",
         trigger: ".faq__sidebar",
         selector: [".faq__title", ".faq__subtitle", ".faq__button"],
         from: { y: 60, opacity: 0 },

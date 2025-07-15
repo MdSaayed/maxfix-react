@@ -29,7 +29,7 @@ const TeamArea = ({
                   experiences that inspire action and drive lasting connections.
                 </p>
 
-                <Link to="#" className="team__btn btn__bluet">
+                <Link to="/team" className="team__btn btn__bluet">
                   <span className="team__btn-bluet bluet"></span>
                   <span className="team__btn-text btn-text">meet our team</span>
                 </Link>
