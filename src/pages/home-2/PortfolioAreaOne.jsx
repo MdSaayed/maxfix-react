@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import portfolio_data from "../../data/portfolio-data";
 import PortfolioItemOne from "../../components/elements/PortfolioItemOne";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const PortfolioAreaOne = () => {
+  const animateRef = useRef();
+
+  // Animation
+  useStaggerReveal(animateRef, [
+    ".portfolio__title",
+    ".portfolio__year",
+    ".portfolio__grid> div",
+    ".portfolio__btn",
+  ]);
+
   return (
-    <section className="portfolio portfolio--one">
+    <section className="portfolio portfolio--one" ref={animateRef}>
       <div className="portfolio__container container">
         <h2 className="portfolio__title title">
           Creating virtual emotion in the universe, for the largest brands &

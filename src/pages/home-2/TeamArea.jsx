@@ -1,8 +1,9 @@
 // src/components/TeamArea.jsx
-import React from "react";
+import React, { useRef } from "react";
 import useBackground from "../../hooks/useBackground";
 import { Link } from "react-router-dom";
 import TeamGrid from "../../components/elements/TeamGrid";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const TeamArea = ({
   showContent = true,
@@ -10,9 +11,13 @@ const TeamArea = ({
   showItem = 4,
 }) => {
   const bgImage = useBackground("./assets/images/team/team-bg.png");
+  const animateRef = useRef();
+
+  // Animation
+  useStaggerReveal(animateRef, [".team__title", ".team__desc", ".team__btn"]);
 
   return (
-    <section className={`team ${className}`}>
+    <section className={`team ${className}`} ref={animateRef}>
       {showContent && (
         <>
           <div className="team__content" style={bgImage}>

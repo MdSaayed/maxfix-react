@@ -8,7 +8,7 @@ const services_data2 = [
   },
   {
     tab: 'Development',
-    image: './assets/images/services/services-15.png',
+    image: './assets/images/services/services-15.jpg',
     text:
       'Our team crafts user-focused interfaces and responsive frameworks, ensuring intuitive interaction across every platform and device experience.',
     tags: ['UI Design', 'Prototyping', 'Interaction', 'Responsive Grid'],
@@ -22,14 +22,14 @@ const services_data2 = [
   },
   {
     tab: 'Design Support',
-    image: './assets/images/services/services-14.png',
+    image: './assets/images/services/services-14.jpg',
     text:
       'We deliver packaging designs that reflect brand personality and ensure product appeal with a balance of form and function.',
     tags: ['Box Design', 'Label Concept', 'Retail Ready', 'Eco Design'],
   },
   {
     tab: 'UX/UI Design',
-    image: './assets/images/services/services-13.png',
+    image: './assets/images/services/services-13.jpg',
     text:
       'Through compelling content and targeted messaging, we craft campaigns that convert audiences and strengthen digital brand presence.',
     tags: ['Content Plan', 'SEO Writing', 'Campaign Copy', 'Ad Creatives'],

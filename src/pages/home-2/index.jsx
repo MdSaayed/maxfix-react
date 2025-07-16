@@ -19,7 +19,7 @@ const HomeTwo = () => {
     <>
       <HeaderTwo />
       <HeroAreaTwo />
-      <KeywordsArea />
+      <KeywordsArea /> 
       <AboutAreaTwo />
       <PortfolioAreaOne />
       <FactArea />

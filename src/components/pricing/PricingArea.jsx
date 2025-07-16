@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import pricing_data from "../../data/pricing-data";
 import PricingCard from "../elements/PricingCard";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const PricingArea = () => {
   const [period, setPeriod] = useState("monthly");
+  const animateRef = useRef();
+
+  // Animation
+  useStaggerReveal(animateRef, [
+    ".pricing__title",
+    ".pricing__toggle",
+    ".pricing__cards> div",
+  ]);
 
   return (
-    <section className="pricing">
+    <section className="pricing" ref={animateRef}>
       <div className="pricing__container container">
         <h2 className="pricing__title title">
           Choose the perfect plan for your digital growth and lasting success

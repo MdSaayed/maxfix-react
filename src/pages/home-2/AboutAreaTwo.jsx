@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
+
+const aboutItems = [
+  {
+    title: "• // Our Mission",
+    text: "We deliver purposeful design and technology solutions tailored for today’s business challenges",
+  },
+  {
+    title: "• // Our Vision",
+    text: "Our vision is to shape meaningful digital experiences that inspire trust and spark engagement",
+  },
+  {
+    title: "• // Our Awards",
+    text: "Honored with industry recognition for creativity, innovation, and impactful digital solutions",
+  },
+];
 
 const AboutAreaTwo = () => {
-  const aboutItems = [
-    {
-      title: "• // Our Mission",
-      text: "We deliver purposeful design and technology solutions tailored for today’s business challenges",
-    },
-    {
-      title: "• // Our Vision",
-      text: "Our vision is to shape meaningful digital experiences that inspire trust and spark engagement",
-    },
-    {
-      title: "• // Our Awards",
-      text: "Honored with industry recognition for creativity, innovation, and impactful digital solutions",
-    },
-  ];
+  const animateRef = useRef();
+
+  // Animation
+  useStaggerReveal(animateRef, [".about__title", ".about__item-wrap"]);
 
   return (
-    <section className="about about--two">
+    <section className="about about--two" ref={animateRef}>
       <div className="about__container container">
         <div className="about__title-wrap">
           <h2 className="about__title title">

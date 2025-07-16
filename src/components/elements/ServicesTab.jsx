@@ -1,6 +1,7 @@
 import React from 'react';
 
 const ServicesTab = ({item, setActiveIndex,index,activeIndex}) => {
+    
     return (
     <button
         key={index}

@@ -1,111 +1,113 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useAnimations } from "../../hooks/useAnimations";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const HeroAreaHomeOne = () => {
-  const { animateRepeatedly } = useAnimations();
+  const heroRef = useRef(null);
 
   useEffect(() => {
-    animateRepeatedly(
-      ".hero__image--left",
-      { x: -120, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
-    );
-    animateRepeatedly(
-      ".hero__brand",
-      { y: -60, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
-    );
-    animateRepeatedly(
-      ".hero__video-icon-wrap",
-      { scale: 0.4, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" }
-    );
-    animateRepeatedly(
-      ".hero__stats",
-      { x: 80, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
-    );
-    animateRepeatedly(
-      ".hero__tagline",
-      { scale: 0.8, opacity: 0, transformOrigin: "left center" },
-      { scale: 1, opacity: 1, duration: 1.6, ease: "power4.out" }
-    );
-    animateRepeatedly(
-      ".hero__text",
-      { y: 60, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
-    );
+    const ctx = gsap.context(() => {
+      // ===== SET initial hidden states =====
+      gsap.set(".hero__image--left", { x: -100, opacity: 0 });
+      gsap.set([".hero__brand", ".hero__video-icon-wrap", ".hero__stats"], { y: 50, opacity: 0 });
+      gsap.set(".hero__tagline", { y: 40, opacity: 0 });
+      gsap.set(".hero__text", { y: 30, opacity: 0 });
+      gsap.set(".hero__arrow", { y: 20, opacity: 0 });
+      gsap.set(".hero__image--right", { x: 100, opacity: 0 });
 
-    // Arrow scroll animation
-    ScrollTrigger.create({
-      trigger: ".hero__arrow",
-      start: "top 90%",
-      onEnter: () => {
-        gsap.fromTo(
-          ".hero__arrow",
-          { y: 20, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.6,
-            ease: "power4.out",
-            onComplete: () => {
-              gsap.to(".hero__arrow", {
-                y: 30,
-                repeat: -1,
-                yoyo: true,
-                duration: 1.2,
-                ease: "sine.inOut",
-              });
-            },
-          }
-        );
-      },
-      onEnterBack: () => {
-        gsap.fromTo(
-          ".hero__arrow",
-          { y: 20, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.6,
-            ease: "power4.out",
-            onComplete: () => {
-              gsap.to(".hero__arrow", {
-                y: 30,
-                repeat: -1,
-                yoyo: true,
-                duration: 1.2,
-                ease: "sine.inOut",
-              });
-            },
-          }
-        );
-      },
-    });
-
-    animateRepeatedly(
-      ".hero__image--right",
-      { x: 120, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
-    );
-    animateRepeatedly(
-      ".hero__line",
-      { scaleY: 0, opacity: 0, transformOrigin: "top center" },
-      {
-        scaleY: 1,
+      // ===== Animate on scroll (every time) =====
+      gsap.to(".hero__image--left", {
+        x: 0,
         opacity: 1,
-        duration: 1.6,
-        ease: "power4.out",
-        stagger: 0.3,
-      }
-    );
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".hero__image--left",
+          start: "top 90%",
+          toggleActions: "restart none none none",
+        },
+      });
+
+      gsap.to([".hero__brand", ".hero__video-icon-wrap", ".hero__stats"], {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".hero__brand",
+          start: "top 85%",
+          toggleActions: "restart none none none",
+        },
+      });
+
+      gsap.to(".hero__tagline", {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".hero__tagline",
+          start: "top 90%",
+          toggleActions: "restart none none none",
+        },
+      });
+
+      gsap.to(".hero__text", {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".hero__text",
+          start: "top 95%",
+          toggleActions: "restart none none none",
+        },
+      });
+
+      gsap.to(".hero__arrow", {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: ".hero__arrow",
+          start: "top 95%",
+          toggleActions: "restart none none none",
+        },
+      });
+
+      gsap.to(".hero__image--right", {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".hero__image--right",
+          start: "top 90%",
+          toggleActions: "restart none none none",
+        },
+      });
+
+      // ===== Arrow bounce animation (infinite) =====
+      gsap.to(".hero__arrow", {
+        y: 10,
+        repeat: -1,
+        yoyo: true,
+        duration: 0.8,
+        ease: "power1.inOut",
+        delay: 2, // optional: wait before bouncing starts
+      });
+
+    }, heroRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section className="hero hero--one">
+    <section className="hero hero--one" ref={heroRef}>
       <div className="hero__container container">
         <div className="hero__content-area">
           <div className="hero__image hero__image--left">
@@ -127,7 +129,6 @@ const HeroAreaHomeOne = () => {
                     alt="video icon"
                   />
                 </span>
-
                 <span className="hero__stats">
                   <span className="hero__stats-number">25 k+</span>
                   <span className="hero__stats-text">
