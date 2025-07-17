@@ -1,83 +1,119 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Subtitle from "../../common/Subtitle";
-import { useAnimations } from "../../hooks/useAnimations";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AboutAreaOne = () => {
-  const { animateOnScroll } = useAnimations();
   const ease = "power4.out";
-  const duration = 2.2;
 
+  // Animation
   useEffect(() => {
-    animateOnScroll(".about__subtitle-wrap", {
-      from: { y: -30, opacity: 0 },
-      to: { y: 0, opacity: 1, duration, ease },
-    });
+    gsap.fromTo(
+      ".about__title-wrap",
+      { opacity: 0, y: 90 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.5,
+        ease: ease,
+        scrollTrigger: {
+          trigger: ".about__title-wrap",
+          start: "top 90%",
+          end: "bottom top",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
 
-    animateOnScroll(".about__title", {
-      from: { y: 50, opacity: 0 },
-      to: { y: 0, opacity: 1, duration, ease },
-    });
+    gsap.fromTo(
+      ".about__col--left .about__desc, .about__testimonial",
+      { opacity: 0, x: -50 },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: ease,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".about__col--left",
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
 
-    animateOnScroll(".about__desc", {
-      from: { x: -100, opacity: 0 },
-      to: { x: 0, opacity: 1, duration, ease },
-    });
+    gsap.fromTo(
+      ".about__image--left",
+      { opacity: 0, scale: 0.8 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1.2,
+        ease: ease,
+        scrollTrigger: {
+          trigger: ".about__image--left",
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
 
-    animateOnScroll(".about__testimonial", {
-      from: { x: -60, opacity: 0 },
-      to: { x: 0, opacity: 1, duration, ease },
-    });
+    gsap.fromTo(
+      ".about__image--right",
+      { opacity: 0, scale: 0.8 },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 1.2,
+        ease: ease,
+        scrollTrigger: {
+          trigger: ".about__image--right",
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
+        },
+      }
+    );
 
-    animateOnScroll(".about__image--left", {
-      from: { x: -150, opacity: 0 },
-      to: { x: 0, opacity: 1, duration, ease },
-    });
-
-    animateOnScroll(".about__image--right", {
-      from: { x: 150, opacity: 0 },
-      to: { x: 0, opacity: 1, duration, ease },
-    });
-
-    animateOnScroll(".about__button", {
-      from: { y: 40, scale: 0.8, opacity: 0 },
-      to: {
+    gsap.fromTo(
+      ".about__button",
+      { opacity: 0, y: 50, scale: 0.8 },
+      {
+        opacity: 1,
         y: 0,
         scale: 1,
-        opacity: 1,
-        duration,
-        ease,
-        onComplete: () => {
-          gsap.to(".about__button", {
-            scale: 1.05,
-            repeat: -1,
-            yoyo: true,
-            duration: 1.8,
-            ease: "sine.inOut",
-          });
+        duration: 1,
+        ease: ease,
+        scrollTrigger: {
+          trigger: ".about__button",
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
         },
-      },
-    });
+      }
+    );
 
-    animateOnScroll(".about__hand", {
-      from: { y: 30, opacity: 0 },
-      to: {
-        y: 0,
+    gsap.fromTo(
+      ".about__hand",
+      { opacity: 0, x: 100, rotate: 45 },
+      {
         opacity: 1,
-        duration,
-        ease,
-        onComplete: () => {
-          gsap.to(".about__hand", {
-            y: 10,
-            repeat: -1,
-            yoyo: true,
-            duration: 2.4,
-            ease: "sine.inOut",
-          });
+        x: 0,
+        rotate: 0,
+        duration: 1.5,
+        ease: ease,
+        scrollTrigger: {
+          trigger: ".about__hand",
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
         },
-      },
-    });
+      }
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (

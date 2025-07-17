@@ -9,98 +9,153 @@ const HeroAreaHomeOne = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // ===== SET initial hidden states =====
-      gsap.set(".hero__image--left", { x: -100, opacity: 0 });
-      gsap.set([".hero__brand", ".hero__video-icon-wrap", ".hero__stats"], { y: 50, opacity: 0 });
-      gsap.set(".hero__tagline", { y: 40, opacity: 0 });
-      gsap.set(".hero__text", { y: 30, opacity: 0 });
-      gsap.set(".hero__arrow", { y: 20, opacity: 0 });
-      gsap.set(".hero__image--right", { x: 100, opacity: 0 });
-
-      // ===== Animate on scroll (every time) =====
-      gsap.to(".hero__image--left", {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
+      gsap.from(".hero__image--left", {
+        x: -100,
+        opacity: 0,
+        scale: 0.8,
+        duration: 1.2,
+        ease: "back.out(1.7)",
         scrollTrigger: {
           trigger: ".hero__image--left",
-          start: "top 90%",
-          toggleActions: "restart none none none",
+          start: "top 85%",
+          toggleActions: "play reverse play reverse",
         },
       });
 
-      gsap.to([".hero__brand", ".hero__video-icon-wrap", ".hero__stats"], {
-        y: 0,
-        opacity: 1,
+      gsap.from(".hero__image--right", {
+        x: 100,
+        opacity: 0,
+        scale: 0.8,
+        duration: 1.2,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".hero__image--right",
+          start: "top 85%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      gsap.from(".hero__brand", {
+        y: 50,
+        opacity: 0,
         duration: 0.8,
-        stagger: 0.2,
-        ease: "power2.out",
+        ease: "power3.out",
         scrollTrigger: {
           trigger: ".hero__brand",
-          start: "top 85%",
-          toggleActions: "restart none none none",
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
         },
       });
 
-      gsap.to(".hero__tagline", {
-        y: 0,
-        opacity: 1,
+      gsap.from(".hero__video-icon-wrap", {
+        scale: 0,
+        opacity: 0,
+        duration: 0.7,
+        ease: "back.out(2)",
+        scrollTrigger: {
+          trigger: ".hero__video-icon-wrap",
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      gsap.from(".hero__stats", {
+        y: 50,
+        opacity: 0,
         duration: 0.8,
-        ease: "power2.out",
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".hero__stats",
+          start: "top 90%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      gsap.from(".hero__tagline", {
+        y: 50,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: ".hero__tagline",
           start: "top 90%",
-          toggleActions: "restart none none none",
+          toggleActions: "play reverse play reverse",
         },
       });
 
-      gsap.to(".hero__text", {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".hero__text",
-          start: "top 95%",
-          toggleActions: "restart none none none",
-        },
-      });
-
-      gsap.to(".hero__arrow", {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: ".hero__arrow",
-          start: "top 95%",
-          toggleActions: "restart none none none",
-        },
-      });
-
-      gsap.to(".hero__image--right", {
-        x: 0,
-        opacity: 1,
+      gsap.from(".hero__text", {
+        y: 30,
+        opacity: 0,
         duration: 1,
         ease: "power3.out",
         scrollTrigger: {
-          trigger: ".hero__image--right",
+          trigger: ".hero__text",
           start: "top 90%",
-          toggleActions: "restart none none none",
+          toggleActions: "play reverse play reverse",
         },
       });
 
-      // ===== Arrow bounce animation (infinite) =====
-      gsap.to(".hero__arrow", {
-        y: 10,
-        repeat: -1,
-        yoyo: true,
+      // Continuous up and down animation for hero__arrow
+      const arrowAnimation = gsap.to(".hero__arrow", {
+        y: -10, // Move up by 10px
         duration: 0.8,
         ease: "power1.inOut",
-        delay: 2, // optional: wait before bouncing starts
+        yoyo: true, // Go back and forth
+        repeat: -1, // Repeat indefinitely
+        paused: true, // Start paused
       });
 
+      gsap.from(".hero__arrow", {
+        y: 30,
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.8,
+        ease: "bounce.out",
+        scrollTrigger: {
+          trigger: ".hero__arrow",
+          start: "top 95%",
+          onEnter: () => arrowAnimation.play(), // Play continuous animation on enter
+          onLeave: () => arrowAnimation.pause(), // Pause continuous animation on leave
+          onEnterBack: () => arrowAnimation.play(), // Play continuous animation on enter back
+          onLeaveBack: () => arrowAnimation.pause(), // Pause continuous animation on leave back
+        },
+      });
+
+      gsap.from(".hero__line--1", {
+        scaleX: 0,
+        transformOrigin: "left center",
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".hero__line--1",
+          start: "top 95%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      gsap.from(".hero__line--2", {
+        scaleX: 0,
+        transformOrigin: "left center",
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".hero__line--2",
+          start: "top 95%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      gsap.from(".hero__line--3", {
+        scaleX: 0,
+        transformOrigin: "left center",
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".hero__line--3",
+          start: "top 95%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
     }, heroRef);
 
     return () => ctx.revert();
@@ -130,7 +185,7 @@ const HeroAreaHomeOne = () => {
                   />
                 </span>
                 <span className="hero__stats">
-                  <span className="hero__stats-number">25 k+</span>
+                  <span className="hero__stats-number">25 k+</span>
                   <span className="hero__stats-text">
                     Projects completed successfully
                   </span>

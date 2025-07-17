@@ -18,7 +18,7 @@ const HomeOne = () => {
   return (
     <>
       <HeaderOne />
-      <HeroAreaHomeOne />
+      <HeroAreaHomeOne /> 
       <KeywordsArea />
       <AboutAreaOne />
       <FactArea />
