@@ -1,18 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import fact_data from "../../data/fact-data";
 import FactItem from "../elements/FactItem";
-import { useAnimations } from "../../hooks/useAnimations";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const FactArea = () => {
-  const { animateGroupItems } = useAnimations();
 
+  // Animation
   useEffect(() => {
-    animateGroupItems(
-      ".fact__item",
-      { y: 80, opacity: 0 },
-      { y: 0, opacity: 1, duration: 2, ease: "power4.out" },
-      0.1
-    );
+    const factItems = gsap.utils.toArray(".fact__item");
+
+    factItems.forEach((item, i) => {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(
+        item,
+        { y: 80, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power4.out",
+          delay: i * 0.1,
+        }
+      );
+
+      ScrollTrigger.create({
+        trigger: item,
+        start: "top 90%",
+        end: "bottom top",
+        animation: tl,
+        toggleActions: "play reverse play reverse",
+      });
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (

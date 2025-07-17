@@ -1,48 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import steps_data from "../../data/steps-data";
 import Subtitle from "../../common/Subtitle";
 import ButtonArrow from "../../common/ButtonArrow";
 import ProcessStep from "../../components/elements/ProcessStep";
-import { useAnimations } from "../../hooks/useAnimations";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
+gsap.registerPlugin(ScrollTrigger);
 
 const ProcessArea = () => {
+  const introRef = useRef();
+
   // Animation
-  const duration = 2.2;
-  const ease = "power4.out";
-  const { animateRepeatedly, animateGroupItems } = useAnimations();
-
   useEffect(() => {
-    animateRepeatedly(
-      ".process__subtitle-wrap",
-      { y: -40, opacity: 0 },
-      { y: 0, opacity: 1, duration, ease }
-    );
+    const factItems = gsap.utils.toArray(".process__steps> div");
 
-    animateRepeatedly(
-      ".process__title",
-      { y: 60, opacity: 0 },
-      { y: 0, opacity: 1, duration, ease }
-    );
+    factItems.forEach((item, i) => {
+      const tl = gsap.timeline({ paused: true });
 
-    animateRepeatedly(
-      ".process__btn",
-      { scale: 0.9, opacity: 0 },
-      { scale: 1, opacity: 1, duration, ease }
-    );
+      tl.fromTo(
+        item,
+        { y: 90, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power4.out",
+          delay: i * 0.1,
+        }
+      );
 
-    animateGroupItems(
-      ".process__step",
-      { y: 150, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.5, ease },
-      0.1
-    );
+      ScrollTrigger.create({
+        trigger: item,
+        start: "top 90%",
+        end: "bottom top",
+        animation: tl,
+        toggleActions: "play reverse play reverse",
+      });
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
+
+  // Text animation
+
+  useStaggerReveal(introRef, [
+    ".process__subtitle-wrap",
+    ".process__title",
+    ".process__btn",
+  ]);
 
   return (
     <section className="process process--one">
       <div className="container__process container">
         <div className="process__content-area">
-          <div className="process__intro">
+          <div className="process__intro" ref={introRef}>
             <div className="process__title-wrap">
               <Subtitle
                 variant="secondary"

@@ -1,11 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import services_data from "../../data/services_data";
 import Subtitle from "../../common/Subtitle";
 import ButtonArrow from "../../common/ButtonArrow";
 import ServicesItemOne from "../../components/elements/ServicesItemOne";
-import { useAnimations } from "../../hooks/useAnimations";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const ServicesAreaOne = ({ showHeader = true, customClass = "" }) => {
+  const animateRef = useRef();
   const [activeIndex, setActiveIndex] = useState(0);
 
   const toggleItem = (index) => {
@@ -13,51 +14,19 @@ const ServicesAreaOne = ({ showHeader = true, customClass = "" }) => {
   };
 
   // Animation
-  const { animateRepeatedly, animateGroupItems } = useAnimations();
-  const duration = 2.1;
-  const ease = "power4.out";
-
-  useEffect(() => {
-    animateRepeatedly(
-      ".services__subtitle-wrap",
-      { y: -40, opacity: 0 },
-      { y: 0, opacity: 1, duration, ease }
-    );
-
-    animateRepeatedly(
-      ".services__title",
-      { y: 40, opacity: 0 },
-      { y: 0, opacity: 1, duration, ease }
-    );
-
-    animateRepeatedly(
-      ".services__btn",
-      { opacity: 0 },
-      { opacity: 1, duration, ease }
-    );
-
-    animateRepeatedly(
-      ".services__desc",
-      { x: -60, opacity: 0 },
-      { x: 0, opacity: 1, duration, ease }
-    );
-
-    animateRepeatedly(
-      ".services__image",
-      { x: 60, opacity: 0 },
-      { x: 0, opacity: 1, duration, ease }
-    );
-
-    animateGroupItems(
-      ".services__item",
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration, ease },
-      0.05
-    );
-  }, []);
+  useStaggerReveal(animateRef, [
+    ".services__list> div",
+    ".services__subtitle-wrap",
+    ".services__title",
+    ".services__btn",
+    "services__desc",
+  ]);
 
   return (
-    <section className={`services services--one ${customClass}`}>
+    <section
+      className={`services services--one ${customClass}`}
+      ref={animateRef}
+    >
       <div className="services__container container">
         {showHeader && (
           <>
