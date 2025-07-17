@@ -1,34 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import blog_data from "../../data/blog-data";
 import useBackground from "../../hooks/useBackground";
 import BlogCard from "../elements/BlogCard";
 import ButtonArrow from "../../common/ButtonArrow";
 import Subtitle from "../../common/Subtitle";
-import { useAnimations } from "../../hooks/useAnimations";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const BlogArea = () => {
+  const animateRef = useRef();
   const bgStyle = useBackground("./assets/images/shape/blog-bg.png");
 
   // Animation
-  const { fadeUpRepeat, animateGroupItems } = useAnimations();
-  const ease = "power4.out";
-  useEffect(() => {
-    fadeUpRepeat(".blog__subtitle-wrap", 0);
-
-    fadeUpRepeat(".blog__heading", 0.1);
-
-    fadeUpRepeat(".blog__btn", 0.2);
-
-    animateGroupItems(
-      ".blog__item",
-      { y: 150, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.5, ease },
-      0.1
-    );
-  }, []);
+  useStaggerReveal(animateRef, [
+    ".blog__subtitle-wrap",
+    ".blog__heading",
+    ".blog__btn",
+    ".blog__item",
+  ]);
 
   return (
-    <section className="blog" style={bgStyle}>
+    <section className="blog" style={bgStyle} ref={animateRef}>
       <div className="blog__container container">
         <div className="blog__title-wrap title-wrap__flex">
           <Subtitle

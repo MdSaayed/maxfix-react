@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import recent_works from "../../data/recent-works";
 import RecentWorksCard from "../../components/elements/RecentWorksCard";
-import { useAnimations } from "../../hooks/useAnimations";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const RecentWorksArea = ({
   showTitle = true,
@@ -16,6 +16,7 @@ const RecentWorksArea = ({
     "All",
     ...new Set(recent_works.map((item) => item.category)),
   ];
+  const animateRef = useRef();
 
   const filterItems = (cateItem) => {
     setActiveCategory(cateItem);
@@ -30,38 +31,15 @@ const RecentWorksArea = ({
   };
 
   // Animation
-  const { animateGroupItems } = useAnimations();
-  const ease = "power4.out";
-  useEffect(() => {
-    animateGroupItems(
-      ".recent-works__title-wrap",
-      { y: 60, opacity: 0 },
-      { y: 0, opacity: 1, duration: 2, ease }
-    );
-
-    animateGroupItems(
-      ".recent-work__filter-item",
-      { y: 40, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.5, ease },
-      0.1
-    );
-
-    animateGroupItems(
-      ".work-card",
-      { y: 80, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.8, ease },
-      0.1
-    );
-
-    animateGroupItems(
-      ".recent-works__cta",
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 2, ease }
-    );
-  }, []);
+  useStaggerReveal(animateRef, [
+    ".recent-works__title",
+    ".recent-work__filter-list> li",
+    ".recent-works__grid> div",
+    ".recent__button-wrapper",
+  ]);
 
   return (
-    <section className="recent-works">
+    <section className="recent-works" ref={animateRef}>
       <div className="recent-work__container container">
         {showTitle && (
           <>

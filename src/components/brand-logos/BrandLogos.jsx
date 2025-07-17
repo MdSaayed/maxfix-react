@@ -1,61 +1,18 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useAnimations } from "../../hooks/useAnimations";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BrandLogos = () => {
+  const animateRef = useRef(null);
+  
   // Animation
-  const itemsRef = useRef([]);
-  const titleRef = useRef(null);
-  const gridRef = useRef(null);
-  const { animateRepeatedly } = useAnimations();
-
-  useEffect(() => {
-    const title = titleRef.current;
-    const items = itemsRef.current;
-    const grid = gridRef.current;
-
-    animateRepeatedly(
-      title,
-      { y: -40, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.6, ease: "power4.out" }
-    );
-
-    const trigger = ScrollTrigger.create({
-      trigger: grid,
-      start: "top 90%",
-      onEnter: () => {
-        gsap.fromTo(
-          items,
-          { y: 60, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            ease: "power4.out",
-            stagger: 0.2,
-          }
-        );
-      },
-      onEnterBack: () => {
-        gsap.fromTo(
-          items,
-          { y: 60, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.5,
-            ease: "power4.out",
-            stagger: 0.2,
-          }
-        );
-      },
-    });
-
-    return () => trigger.kill();
-  }, [animateRepeatedly]);
+  useStaggerReveal(animateRef, [
+    ".brand-logos__title",
+    ".brand-logos__grid> div",
+  ]);
 
   // Logos
   const brandImages = [
@@ -68,19 +25,15 @@ const BrandLogos = () => {
   ];
 
   return (
-    <section className="brand-logos">
+    <section className="brand-logos" ref={animateRef}>
       <div className="brand-logos__container container">
-        <h2 className="brand-logos__title" ref={titleRef}>
+        <h2 className="brand-logos__title">
           (Loved by teams around the world)
         </h2>
 
-        <div className="brand-logos__grid" ref={gridRef}>
+        <div className="brand-logos__grid">
           {brandImages.map((img, index) => (
-            <div
-              className="brand-logos__item"
-              key={index}
-              ref={(el) => (itemsRef.current[index] = el)}
-            >
+            <div className="brand-logos__item" key={index}>
               <img
                 src={img}
                 alt={`Brand logo ${index + 1}`}

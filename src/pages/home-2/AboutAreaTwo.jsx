@@ -17,7 +17,7 @@ const aboutItems = [
 ];
 
 const AboutAreaTwo = () => {
-  const animateRef = useRef();
+  const animateRef = useRef(); 
 
   // Animation
   useStaggerReveal(animateRef, [".about__title", ".about__item-wrap"]);

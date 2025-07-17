@@ -68,6 +68,7 @@ const FaqArea = () => {
       });
     });
   }, []);
+  
 
   return (
     <section className="faq">
