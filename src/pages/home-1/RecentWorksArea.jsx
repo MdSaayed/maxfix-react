@@ -82,7 +82,7 @@ const RecentWorksArea = ({
             <div className="recent-works__cta">
               <div className="recent__button-wrapper btn-circle__wrapper">
                 <Link
-                  to="./portfolio.html"
+                  to="./portfolio"
                   className="recent-works__cta-button"
                 >
                   <span className="recent-works__cta-button-text">

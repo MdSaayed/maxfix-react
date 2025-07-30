@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Swal from "sweetalert2";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const BlogCommentForm = () => {
+  const animateRef = useRef();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -35,8 +37,20 @@ const BlogCommentForm = () => {
     }, 500);
   };
 
+  // Animation
+  useStaggerReveal(animateRef, [
+    ".blog__form-subtitle",
+    ".blog__input",
+    ".blog__textarea",
+    ".blog__btn-wrap",
+  ]);
+
   return (
-    <form className="blog__comment-form" onSubmit={handleSubmit}>
+    <form
+      className="blog__comment-form"
+      onSubmit={handleSubmit}
+      ref={animateRef}
+    >
       <h3 className="blog__form-subtitle">Leave A Comment</h3>
 
       <div className="blog__input-group">
@@ -72,7 +86,7 @@ const BlogCommentForm = () => {
 
       <div className="blog__btn-wrap">
         <button type="submit" className="blog__submit btn-arrow">
-          <span className="blog__submit-text btn-arrow__text">    
+          <span className="blog__submit-text btn-arrow__text">
             Submit Comment
           </span>
         </button>

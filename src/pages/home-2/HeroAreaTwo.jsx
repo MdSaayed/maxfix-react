@@ -4,6 +4,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import useBackground from "../../hooks/useBackground";
 import TrustHighlight from "../../common/TrustHighlight";
+import GLightbox from "glightbox";
+import "glightbox/dist/css/glightbox.min.css";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -152,8 +155,19 @@ const HeroAreaTwo = () => {
       }
     }, animateRef);
 
-    return () => ctx.revert();
+    const lightbox = GLightbox({
+      selector: ".glightbox",
+      touchNavigation: true,
+      autoplayVideos: true,
+    });
+
+    return () => {
+      ctx.revert();
+      lightbox.destroy();  
+    };
+
   }, []);
+
 
   return (
     <section className="hero hero--two" ref={animateRef}>
@@ -180,9 +194,10 @@ const HeroAreaTwo = () => {
               src="./assets/images/hero/hero-home2-video.png"
               alt="Play Video"
             />
-            <Link
-              to="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            <a
+              href="https://youtu.be/u31qwQUeGuM?si=x0LncYDOXQSLu_mX"
               className="hero__video-icon glightbox"
+              data-type="video"
             >
               <svg width="40" height="40" viewBox="0 0 70 70" fill="none">
                 <circle cx="35" cy="35" r="35" fill="white" />
@@ -191,7 +206,8 @@ const HeroAreaTwo = () => {
                   fill="black"
                 />
               </svg>
-            </Link>
+            </a>
+
           </div>
           <span className="hero__subtitle">Digital Age</span>
         </div>

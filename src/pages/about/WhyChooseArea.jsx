@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import Subtitle from "../../common/Subtitle";
 import ButtonArrow from "../../common/ButtonArrow";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
+import { useZoomReveal } from "../../hooks/useGsapZoom";
 
 // Data array
 const reasons = [
@@ -23,13 +25,28 @@ const reasons = [
 ];
 
 const WhyChooseArea = () => {
+  const animateRef = useRef();
+
+  // Animation
+  useStaggerReveal(animateRef, [
+    ".why-choose__subtitle-wra",
+    ".why-choose__title",
+    ".why-choose__btn",
+    ".why-choose__item",
+  ]);
+
+  useZoomReveal(animateRef, [".why-choose__image"], { type: "in" });
+
   return (
-    <section className="why-choose why-choose--one">
+    <section className="why-choose why-choose--one" ref={animateRef}>
       <div className="why-choose__container container">
         <div className="why-choose__header title-wrap__flex">
-          <Subtitle text="Why Work With Us" />
+          <Subtitle
+            text="Why Work With Us"
+            wrapperClass="why-choose__subtitle-wrap"
+          />
           <h2 className="why-choose__title title-lg">Why Choose Us?</h2>
-          <ButtonArrow link="/services" text="View All Services" />
+          <ButtonArrow link="/services" text="View All Services" className="why-choose__btn" />
         </div>
 
         <div className="why-choose__content">

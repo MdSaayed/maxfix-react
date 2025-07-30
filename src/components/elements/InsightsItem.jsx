@@ -9,7 +9,7 @@ const InsightsItem = ({article,index}) => {
         <article className="insight-card" key={index}>
             <div className="insight-card__image">
                 <img src={article.image} alt={article.alt} />
-                <Link to={article.link} className="insight-card__link-arrow">
+                <Link to="/blog-details" className="insight-card__link-arrow">
                     <svg
                         width="76"
                         height="76"
@@ -31,7 +31,7 @@ const InsightsItem = ({article,index}) => {
                 <p className="insight-card__meta">
                     {article.tag} <span>//</span> {article.date}
                 </p>
-                <Link to={article.link} className="insight-card__title-link">
+                <Link to="/blog-details" className="insight-card__title-link">
                     <h3 className="insight-card__title">{article.title}</h3>
                 </Link>
             <div className="insight-card__separator" style={separatorBg}></div>

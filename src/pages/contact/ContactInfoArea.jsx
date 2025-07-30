@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const ContactInfoArea = () => {
+  const animateRef = useRef(null);
+
+  // Animation
+  useStaggerReveal(animateRef, [
+    ".contact-info__item",
+    ".about__title",
+    ".about__rating",
+  ]);
+
   return (
-    <section className="contact-info">
+    <section className="contact-info" ref={animateRef}>
       <div className="contact-info__container container">
         <div className="contact-info__item">
           <h3 className="contact-info__title">Address</h3>
@@ -27,8 +37,10 @@ const ContactInfoArea = () => {
         <div className="contact-info__item">
           <h3 className="contact-info__title">Follow us</h3>
           <div className="contact-info__socials">
-            <Link
-              to="#"
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="contact-info__social contact-info__social--active"
             >
               <svg width="47" height="47" viewBox="0 0 47 47" fill="none">
@@ -44,8 +56,14 @@ const ContactInfoArea = () => {
                   fill="black"
                 />
               </svg>
-            </Link>
-            <Link to="#" className="contact-info__social">
+            </a>
+
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-info__social"
+            >
               <svg width="47" height="47" viewBox="0 0 47 47" fill="none">
                 <circle
                   cx="23.4504"
@@ -61,8 +79,14 @@ const ContactInfoArea = () => {
                   fill="black"
                 />
               </svg>
-            </Link>
-            <Link to="#" className="contact-info__social">
+            </a>
+
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-info__social"
+            >
               <svg width="47" height="47" viewBox="0 0 47 47" fill="none">
                 <circle
                   cx="23.4347"
@@ -84,8 +108,14 @@ const ContactInfoArea = () => {
                   fill="black"
                 />
               </svg>
-            </Link>
-            <Link to="#" className="contact-info__social">
+            </a>
+
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-info__social"
+            >
               <svg width="47" height="47" viewBox="0 0 47 47" fill="none">
                 <circle
                   cx="23.55"
@@ -103,8 +133,14 @@ const ContactInfoArea = () => {
                   fill="white"
                 />
               </svg>
-            </Link>
-            <Link to="#" className="contact-info__social">
+            </a>
+
+            <a
+              href="https://pinterest.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-info__social"
+            >
               <svg width="47" height="47" viewBox="0 0 47 47" fill="none">
                 <circle
                   cx="23.5968"
@@ -118,7 +154,7 @@ const ContactInfoArea = () => {
                   fill="black"
                 />
               </svg>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

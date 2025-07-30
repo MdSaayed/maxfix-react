@@ -41,7 +41,7 @@ const TrustHighlight = () => {
         <span className="avatar-stat">19k+</span>
         <span className="avatar-text">Trusted customers world-wide</span>
 
-        <Link className="avatar-btn">
+        <Link to="/services" className="avatar-btn">
           <span className="avatar-btn-icon"></span>
           <span className="avatar-btn-text">GET SERVICES</span>
         </Link>

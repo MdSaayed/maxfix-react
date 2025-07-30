@@ -35,40 +35,41 @@ const FaqArea = () => {
       }
     );
 
+    // Animation for FAQ items  
     faqItemRefs.current.forEach((item, index) => {
+      if (!item) return;
+
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(
+        item,
+        { y: 70, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.5,
+          ease: "power4.out",
+          delay: index * 0.1,
+        }
+      );
+
       ScrollTrigger.create({
         trigger: item,
-        start: "top 95%",
-        onEnter: () => {
-          gsap.fromTo(
-            item,
-            { y: 70, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1.5,
-              ease: "power4.out",
-              delay: index * 0.1,
-            }
-          );
-        },
-        onEnterBack: () => {
-          gsap.fromTo(
-            item,
-            { y: 80, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1.5,
-              ease: "power4.out",
-              delay: index * 0.1,
-            }
-          );
-        },
+        start: "top 90%",
+        end: "bottom top",
+        animation: tl,
+
+        onEnter: () => tl.restart(true),
+        onLeaveBack: () => tl.reverse(),
+
       });
     });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
-  
+
 
   return (
     <section className="faq">
@@ -82,7 +83,7 @@ const FaqArea = () => {
               Having Another Question?
             </p>
             <ButtonArrow
-              link="#"
+              link="/contact"
               text="Get In Touch"
               variant="black"
               className="faq__button"

@@ -3,7 +3,7 @@ import services_data2 from "../../data/services-data2";
 import useBackground from "../../hooks/useBackground";
 import ServicesTab from "../../components/elements/ServicesTab";
 import ServicesItemTwo from "../../components/elements/ServicesItemTwo";
-import { useStaggerReveal } from "../../hooks/useStaggerReveal";
+import {useStaggerReveal} from "../../hooks/useStaggerReveal";
 
 const ServicesAreaTwo = () => {
   const [activeIndex, setActiveIndex] = useState(0);

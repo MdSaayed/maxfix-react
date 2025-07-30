@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import awards_data from "../../data/awards-data";
 import AwardItem from "../../components/elements/AwardItem";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const AwardsArea = () => {
+  const animateRef = useRef(null);
+
+  // Animation
+  useStaggerReveal(animateRef, [".awards__row", ".awards__title"]);
+  
   return (
-    <section className="awards">
+    <section className="awards" ref={animateRef}>
       <div className="awards__container container">
         <h2 className="awards__title title-lg">
           Excellence That Earns Recognition

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import Subtitle from "../../common/Subtitle";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const AboutAreaThree = () => {
+  const animateRef = useRef();
+
   const aboutItems = [
     {
       title: "• // Our Mission",
@@ -17,11 +20,21 @@ const AboutAreaThree = () => {
     },
   ];
 
+  // Animation
+  useStaggerReveal(animateRef, [
+    ".about__subtitle-wrap",
+    ".about__title",
+    ".about__rating",
+    ".about__images> div",
+    ".about__item-wrap",
+  ]);
+
+
   return (
-    <section className="about about--about">
+    <section className="about about--about" ref={animateRef}>
       <div className="about__container container">
         <div className="about__header">
-          <Subtitle text="About Company" />
+          <Subtitle text="About Company" wrapperClass="about__subtitle-wrap" />
 
           <div className="about__title-wrap">
             <h2 className="about__title title">

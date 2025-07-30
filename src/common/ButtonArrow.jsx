@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const ButtonArrow = ({
   link = "#",
@@ -9,11 +9,26 @@ const ButtonArrow = ({
   ref = {},
 }) => {
   const btnStyle = `btn-arrow ${variant === "black" ? "btn-arrow__black" : ""}`;
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  // Handle Navigate
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    if (pathname === link) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate(link);
+    }
+  };
 
   return (
-    <Link to={link} className={`${className} ${btnStyle}`} ref={ref}>
-      <span className="btn-arrow__text">{text}</span>
-    </Link>
+    <>
+      <Link onClick={handleClick} className={`${className} ${btnStyle}`} ref={ref}>
+        <span className="btn-arrow__text">{text}</span>
+      </Link>
+    </>
   );
 };
 

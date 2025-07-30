@@ -1,5 +1,8 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger); 
 
 export const useStaggerReveal = (sectionRef, selectors = [], options = {}) => {
   useEffect(() => {
@@ -11,21 +14,28 @@ export const useStaggerReveal = (sectionRef, selectors = [], options = {}) => {
         if (!elements.length) return;
 
         elements.forEach((el) => {
-          gsap.fromTo(
+          const tl = gsap.timeline({ paused: true });
+
+          tl.fromTo(
             el,
-            { opacity: 0.20, y: 50 },
+            { opacity: 0.20, y: 80 },
             {
               opacity: 1,
               y: 0,
               duration: options.duration || 1,
               ease: options.ease || "power2.out",
-              scrollTrigger: {
-                trigger: el,
-                start: options.start || "top 90%",
-                toggleActions: "play none none reset",
-              },
             }
           );
+
+          ScrollTrigger.create({
+            trigger: el,
+            start: options.start || "top 90%",
+            end: "bottom top",
+            animation: tl,
+            onEnter: () => tl.restart(true), 
+            onLeaveBack: () => tl.reverse(), 
+            toggleActions: "none none none none", 
+          });
         });
       });
     }, sectionRef);

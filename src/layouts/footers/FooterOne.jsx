@@ -32,18 +32,20 @@ const FooterOne = () => {
                 maxfix@gmail.com
               </Link>
               <div className="footer__socials">
-                <Link to="#" className="footer__social">
-                  Facebook
-                </Link>
-                <Link to="#" className="footer__social">
-                  Twitter
-                </Link>
-                <Link to="#" className="footer__social">
-                  Instagram
-                </Link>
-                <Link to="#" className="footer__social">
-                  LinkedIn
-                </Link>
+                <div className="footer__socials">
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="footer__social">
+                    Facebook
+                  </a>
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="footer__social">
+                    Twitter
+                  </a>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="footer__social">
+                    Instagram
+                  </a>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="footer__social">
+                    LinkedIn
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useZoomReveal } from "../../hooks/useGsapZoom";
 
 const MapArea = () => {
+  const animateRef = useRef();
+
+  // Animation
+
+  useZoomReveal(animateRef, [".map__location"], { type: "in" });
+
   return (
-    <div className="map map--google">
+    <div className="map map--google" ref={animateRef}>
       <div className="map__container container">
         <div className="map__location">
           <iframe

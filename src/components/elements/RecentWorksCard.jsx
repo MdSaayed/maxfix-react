@@ -10,7 +10,7 @@ const RecentWorksCard = ({item}) => {
                     alt={item?.title}
                     className="work-card__image"
                 />
-                <Link to="./portfolio-details.html" className="work-card__button">
+                <Link to="/portfolio-details" className="work-card__button">
                     View
                 </Link>
                 <div className="work-card__tags">
@@ -20,7 +20,7 @@ const RecentWorksCard = ({item}) => {
                 </div>
             </div>
             <div className="work-card__content">
-                <Link to="./portfolio-details.html" className="work-card__title-link">
+                <Link to="/portfolio-details" className="work-card__title-link">
                     <h3 className="work-card__title">{item?.title}</h3>
                 </Link>
                 <div className="work-card__year-wrap">

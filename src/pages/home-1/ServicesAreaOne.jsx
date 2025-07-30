@@ -4,6 +4,7 @@ import Subtitle from "../../common/Subtitle";
 import ButtonArrow from "../../common/ButtonArrow";
 import ServicesItemOne from "../../components/elements/ServicesItemOne";
 import { useStaggerReveal } from "../../hooks/useStaggerReveal";
+import { ScrollTrigger } from "gsap/ScrollTrigger"; 
 
 const ServicesAreaOne = ({ showHeader = true, customClass = "" }) => {
   const animateRef = useRef();
@@ -11,6 +12,9 @@ const ServicesAreaOne = ({ showHeader = true, customClass = "" }) => {
 
   const toggleItem = (index) => {
     setActiveIndex((prev) => (prev === index ? null : index));
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 50);
   };
 
   // Animation

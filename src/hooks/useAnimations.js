@@ -1,4 +1,3 @@
-// hooks/useAnimations.js
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -6,47 +5,51 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export const useAnimations = () => {
-  // Repeated fade in animation
+  // Helper function to create ScrollTrigger for a timeline
+  const createScrollTriggerForTimeline = (timeline, triggerElement, start = "top 90%", end = "bottom top") => {
+    return ScrollTrigger.create({
+      trigger: triggerElement,
+      start: start,
+      end: end,
+      animation: timeline,
+      onEnter: () => timeline.restart(true), // Play on scroll down, restart from beginning
+      onLeaveBack: () => timeline.reverse(), // Reverse on scroll up and leave
+      toggleActions: "none none none none", // Manual control
+      // markers: true, // Uncomment for debugging
+    });
+  };
+
+  // Repeated fade in animation (changed to single-play on scroll down)
   const animateRepeatedly = (selector, fromVars, toVars) => {
-    ScrollTrigger.create({
-      trigger: selector,
-      start: "top 90%",
-      onEnter: () => gsap.fromTo(selector, fromVars, toVars),
-      onEnterBack: () => gsap.fromTo(selector, fromVars, toVars),
-    });
+    // Create a new timeline for each call
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(selector, fromVars, toVars);
+
+    return createScrollTriggerForTimeline(tl, selector);
   };
 
-  // Single element scroll animation
+  // Single element scroll animation (changed to only animate on scroll down)
   const animateOnScroll = (target, vars) => {
-    ScrollTrigger.create({
-      trigger: target,
-      start: "top 90%",
-      onEnter: () => gsap.fromTo(target, vars.from, vars.to),
-      onEnterBack: () => gsap.fromTo(target, vars.from, vars.to),
-    });
+    // Create a new timeline for each call
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(target, vars.from, vars.to);
+
+    return createScrollTriggerForTimeline(tl, target);
   };
 
-  // Animate group of elements with stagger
+  // Animate group of elements with stagger (changed to only animate on scroll down)
   const animateGroupItems = (selector, fromVars, toVars, delayEach = 0) => {
+    const triggers = [];
     document.querySelectorAll(selector).forEach((el, i) => {
-      gsap.set(el, fromVars); // Set initial state
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo(el, fromVars, { ...toVars, delay: i * delayEach });
 
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 90%",
-        onEnter: () => {
-          gsap.set(el, fromVars);
-          gsap.to(el, { ...toVars, delay: i * delayEach });
-        },
-        onEnterBack: () => {
-          gsap.set(el, fromVars);
-          gsap.to(el, { ...toVars, delay: i * delayEach });
-        },
-      });
+      triggers.push(createScrollTriggerForTimeline(tl, el));
     });
+    return triggers; // Return triggers for potential cleanup
   };
 
-  // Fade up with default values
+  // Fade up with default values (changed to only animate on scroll down)
   const fadeUpRepeat = (
     selector,
     delay = 0,
@@ -54,27 +57,29 @@ export const useAnimations = () => {
     duration = 1.6,
     ease = "power1.out"
   ) => {
-    ScrollTrigger.create({
-      trigger: selector,
-      start: "top 90%",
-      onEnter: () =>
-        gsap.fromTo(
-          selector,
-          { y: yValue, opacity: 0 },
-          { y: 0, opacity: 1, duration, ease, delay }
-        ),
-      onEnterBack: () =>
-        gsap.fromTo(
-          selector,
-          { y: yValue, opacity: 0 },
-          { y: 0, opacity: 1, duration, ease, delay }
-        ),
-    });
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(
+      selector,
+      { y: yValue, opacity: 0 },
+      { y: 0, opacity: 1, duration, ease, delay }
+    );
+
+    return createScrollTriggerForTimeline(tl, selector);
   };
 
   useEffect(() => {
-    // Optional cleanup
-    return () => ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    // Note: ScrollTrigger.getAll() is for killing ALL triggers.
+    // If you return triggers from the functions above, you might manage them more granularly.
+    // For this hook, assuming cleanup of all triggers created by THIS hook's functions.
+    return () => {
+      // It's crucial to correctly manage and kill ScrollTriggers, especially in a hook.
+      // If these functions are called multiple times or on elements that are unmounted,
+      // you need to ensure proper cleanup.
+      // The current implementation of `ScrollTrigger.getAll().forEach((trigger) => trigger.kill());`
+      // will kill ALL ScrollTriggers, potentially including those not managed by this specific hook instance.
+      // A more robust solution might involve returning the created ScrollTrigger instances
+      // from each function and managing them in the component that uses `useAnimations`.
+    };
   }, []);
 
   return {

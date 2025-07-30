@@ -55,11 +55,12 @@ const TestimonialsAreaOne = () => {
     ".testimonials__btn",
   ]);
 
-  // Card Animation
   useEffect(() => {
-    const factItems = gsap.utils.toArray(".testimonials__list> div");
+    const factItems = gsap.utils.toArray(".testimonials__list > div");
 
     factItems.forEach((item, i) => {
+      if (!item) return;
+
       const tl = gsap.timeline({ paused: true });
 
       tl.fromTo(
@@ -79,7 +80,9 @@ const TestimonialsAreaOne = () => {
         start: "top 90%",
         end: "bottom top",
         animation: tl,
-        toggleActions: "play reverse play reverse",
+
+        onEnter: () => tl.restart(true),
+        onLeaveBack: () => tl.reverse(),
       });
     });
 
@@ -87,6 +90,7 @@ const TestimonialsAreaOne = () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+
 
   return (
     <section className="testimonials testimonials--one" ref={animateRef}>

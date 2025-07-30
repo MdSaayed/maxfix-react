@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
 import Subtitle from "../../common/Subtitle";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const TeamAbout = () => {
+  const animateRef = useRef(null);
+
+  // Animation
+  useStaggerReveal(animateRef, [
+    ".about__subtitle-wrap",
+    ".about__title",
+    ".about__rating",
+  ]);
+
   return (
-    <section className="about about--about">
+    <section className="about about--about" ref={animateRef}>
       <div className="about__container container">
         <div className="about__header">
-          <Subtitle text="About Company" />
+          <Subtitle text="About Company" wrapperClass="about__subtitle-wrap" />
           <div className="about__title-wrap">
             <h2 className="about__title title">
               We are a digital studio specializing in website development, SEO,

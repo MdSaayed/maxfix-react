@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
 import Subtitle from "../../common/Subtitle";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
+import { useZoomReveal } from "../../hooks/useGsapZoom";
 
 const PortfolioDetailsArea = () => {
+  const animateRef = useRef(null);
+
+  // Animation
+  useStaggerReveal(animateRef, [
+    ".portfolio-details__author-info",
+    ".portfolio-details__summary",
+    ".portfolio-details__subtitle-wrap",
+    ".portfolio-details__title",
+    ".portfolio-details__text",
+  ]);
+  useZoomReveal(
+    animateRef,
+    [".portfolio-details__cover-image", ".portfolio-details__image"],
+    {
+      type: "in",
+    }
+  );
+
   return (
-    <section className="portfolio-details">
+    <section className="portfolio-details" ref={animateRef}>
       <div className="portfolio-details__container container">
         <div className="portfolio-details__header">
           <div className="portfolio-details__content-wrap">
@@ -54,7 +74,10 @@ const PortfolioDetailsArea = () => {
 
         <div className="portfolio-details__section">
           <div className="portfolio-details__text-block">
-            <Subtitle text="Challenge" />
+            <Subtitle
+              text="Challenge"
+              wrapperClass="portfolio-details__subtitle-wrap"
+            />
 
             <div className="portfolio-details__text-wrap">
               <p className="portfolio-details__title">
@@ -96,7 +119,7 @@ const PortfolioDetailsArea = () => {
 
         <div className="portfolio-details__section">
           <div className="portfolio-details__text-block">
-            <Subtitle text="User experience focus" />
+            <Subtitle text="User experience focus" wrapperClass="portfolio-details__subtitle-wrap"  />
 
             <div className="portfolio-details__text-wrap">
               <p className="portfolio-details__title">

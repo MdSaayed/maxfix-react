@@ -13,7 +13,7 @@ const ProcessArea = () => {
 
   // Animation
   useEffect(() => {
-    const factItems = gsap.utils.toArray(".process__steps> div");
+    const factItems = gsap.utils.toArray(".process__steps > div");
 
     factItems.forEach((item, i) => {
       const tl = gsap.timeline({ paused: true });
@@ -33,9 +33,9 @@ const ProcessArea = () => {
       ScrollTrigger.create({
         trigger: item,
         start: "top 90%",
-        end: "bottom top",
-        animation: tl,
-        toggleActions: "play reverse play reverse",
+        onEnter: () => tl.restart(true), 
+        onLeaveBack: () => tl.reverse(), 
+        toggleActions: "none none none none",
       });
     });
 
@@ -45,12 +45,12 @@ const ProcessArea = () => {
   }, []);
 
   // Text animation
-
   useStaggerReveal(introRef, [
     ".process__subtitle-wrap",
     ".process__title",
     ".process__btn",
   ]);
+
 
   return (
     <section className="process process--one">
@@ -72,7 +72,7 @@ const ProcessArea = () => {
 
             <div className="process__btn-group">
               <ButtonArrow
-                link="#"
+                link="/about"
                 variant="black"
                 text="Explore More"
                 className="process__btn"

@@ -15,11 +15,11 @@ const Faq = () => {
       <Keywords />
       <FaqArea />
       <VideoArea
-        videoLink="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        videoLink="https://www.youtube.com/watch?v=RwU7YY6emYc&pp=ygURcGxhY2Vob2xkZXIgdmlkZW8%3D"
         img="./assets/images/services/video-thumb-bg-2.png"
       />
       <FooterOne />
-      <BackToTop />
+      <BackToTop /> 
     </>
   );
 };

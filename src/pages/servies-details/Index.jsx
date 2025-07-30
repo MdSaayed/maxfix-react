@@ -13,7 +13,7 @@ const ServicesDetails = () => {
       <ServicesHeroArea />
       <ServicesDetailsArea />
       <VideoSliderArea />
-      <FooterOne />
+      <FooterOne /> 
       <BackToTop />
     </>
   );

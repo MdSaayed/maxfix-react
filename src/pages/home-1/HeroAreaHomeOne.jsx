@@ -9,93 +9,76 @@ const HeroAreaHomeOne = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".hero__image--left", {
+      // Helper function to create ScrollTrigger with desired behavior (only on scroll down, reverse on scroll up)
+      const createScrollAnimation = (selector, vars) => {
+        const tl = gsap.timeline({ paused: true });
+        tl.from(selector, vars);
+
+        ScrollTrigger.create({
+          trigger: selector,
+          start: "top 85%", // Adjusted start for hero section elements
+          end: "bottom top", // Important for onLeaveBack to work
+          animation: tl,
+          onEnter: () => tl.restart(true), // Play on scroll down, restart from beginning
+          onLeaveBack: () => tl.reverse(), // Reverse on scroll up and leave
+          toggleActions: "none none none none", // Manual control
+          // markers: true, // Uncomment for debugging
+        });
+      };
+
+      // Apply the custom ScrollTrigger behavior to each element
+      createScrollAnimation(".hero__image--left", {
         x: -100,
         opacity: 0,
         scale: 0.8,
         duration: 1.2,
         ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: ".hero__image--left",
-          start: "top 85%",
-          toggleActions: "play reverse play reverse",
-        },
       });
 
-      gsap.from(".hero__image--right", {
+      createScrollAnimation(".hero__image--right", {
         x: 100,
         opacity: 0,
         scale: 0.8,
         duration: 1.2,
         ease: "back.out(1.7)",
-        scrollTrigger: {
-          trigger: ".hero__image--right",
-          start: "top 85%",
-          toggleActions: "play reverse play reverse",
-        },
       });
 
-      gsap.from(".hero__brand", {
+      createScrollAnimation(".hero__brand", {
         y: 50,
         opacity: 0,
         duration: 0.8,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".hero__brand",
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
       });
 
-      gsap.from(".hero__video-icon-wrap", {
+      createScrollAnimation(".hero__video-icon-wrap", {
         scale: 0,
         opacity: 0,
         duration: 0.7,
         ease: "back.out(2)",
-        scrollTrigger: {
-          trigger: ".hero__video-icon-wrap",
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
       });
 
-      gsap.from(".hero__stats", {
+      createScrollAnimation(".hero__stats", {
         y: 50,
         opacity: 0,
         duration: 0.8,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".hero__stats",
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
       });
 
-      gsap.from(".hero__tagline", {
+      createScrollAnimation(".hero__tagline", {
         y: 50,
         opacity: 0,
         duration: 0.9,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".hero__tagline",
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
       });
 
-      gsap.from(".hero__text", {
+      createScrollAnimation(".hero__text", {
         y: 30,
         opacity: 0,
         duration: 1,
         ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".hero__text",
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
       });
 
-      // Continuous up and down animation for hero__arrow
+      // Continuous up and down animation for hero__arrow (always animate when in viewport)
       const arrowAnimation = gsap.to(".hero__arrow", {
         y: -10, // Move up by 10px
         duration: 0.8,
@@ -105,60 +88,59 @@ const HeroAreaHomeOne = () => {
         paused: true, // Start paused
       });
 
-      gsap.from(".hero__arrow", {
+      // Initial fade-in and scale for the arrow, then control the continuous animation
+      const arrowInitialAnimation = gsap.timeline({ paused: true });
+      arrowInitialAnimation.from(".hero__arrow", {
         y: 30,
         opacity: 0,
         scale: 0.8,
         duration: 0.8,
         ease: "bounce.out",
-        scrollTrigger: {
-          trigger: ".hero__arrow",
-          start: "top 95%",
-          onEnter: () => arrowAnimation.play(), // Play continuous animation on enter
-          onLeave: () => arrowAnimation.pause(), // Pause continuous animation on leave
-          onEnterBack: () => arrowAnimation.play(), // Play continuous animation on enter back
-          onLeaveBack: () => arrowAnimation.pause(), // Pause continuous animation on leave back
-        },
       });
 
-      gsap.from(".hero__line--1", {
+      ScrollTrigger.create({
+        trigger: ".hero__arrow",
+        start: "top 95%",
+        end: "bottom top", // Ensure it has an end point to determine leave
+        animation: arrowInitialAnimation, // Initial animation
+        onEnter: () => {
+          arrowInitialAnimation.restart(true); // Restart initial animation
+          arrowAnimation.play(); // Play continuous animation
+        },
+        onLeave: () => arrowAnimation.pause(), // Pause continuous animation when scrolling DOWN and leaving
+        onEnterBack: () => {
+          arrowInitialAnimation.play(); // Play initial animation when scrolling UP and re-entering
+          arrowAnimation.play(); // Play continuous animation
+        },
+        onLeaveBack: () => arrowAnimation.pause(), // Pause continuous animation when scrolling UP and leaving
+        toggleActions: "none none none none",
+        // markers: true, // Uncomment for debugging
+      });
+
+      // Line animations
+      createScrollAnimation(".hero__line--1", {
         scaleX: 0,
         transformOrigin: "left center",
         duration: 0.6,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".hero__line--1",
-          start: "top 95%",
-          toggleActions: "play reverse play reverse",
-        },
       });
 
-      gsap.from(".hero__line--2", {
+      createScrollAnimation(".hero__line--2", {
         scaleX: 0,
         transformOrigin: "left center",
         duration: 0.6,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".hero__line--2",
-          start: "top 95%",
-          toggleActions: "play reverse play reverse",
-        },
       });
 
-      gsap.from(".hero__line--3", {
+      createScrollAnimation(".hero__line--3", {
         scaleX: 0,
         transformOrigin: "left center",
         duration: 0.6,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".hero__line--3",
-          start: "top 95%",
-          toggleActions: "play reverse play reverse",
-        },
       });
-    }, heroRef);
+    }, heroRef); // Context for all animations within heroRef
 
-    return () => ctx.revert();
+    return () => ctx.revert(); // Revert all GSAP animations and ScrollTriggers on unmount
   }, []);
 
   return (

@@ -4,6 +4,7 @@ import useBackground from "../../hooks/useBackground";
 import TestimonialsItemTwo from "../elements/TestimonialsItemTwo";
 import Subtitle from "../../common/Subtitle";
 import { useStaggerReveal } from "../../hooks/useStaggerReveal";
+import { ScrollTrigger } from "gsap/ScrollTrigger"; 
 
 const TestimonialsAreaTwo = () => {
   const animateRef = useRef();
@@ -12,6 +13,9 @@ const TestimonialsAreaTwo = () => {
 
   const handleToggle = (index) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 50);
   };
 
   //   Animation

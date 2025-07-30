@@ -9,106 +9,64 @@ gsap.registerPlugin(ScrollTrigger);
 const AboutAreaOne = () => {
   const ease = "power4.out";
 
-  // Animation
+   // Animation
   useEffect(() => {
-    gsap.fromTo(
+    const createScrollAnimation = (selector, fromVars, toVars, triggerSelector = selector) => {
+      const tl = gsap.timeline({ paused: true });
+
+      tl.fromTo(
+        selector,
+        fromVars,
+        toVars 
+      );
+
+      ScrollTrigger.create({
+        trigger: triggerSelector,
+        start: "top 90%",
+        end: "bottom top", 
+        animation: tl,  
+        onEnter: () => tl.restart(true),  
+        onLeaveBack: () => tl.reverse(),  
+        toggleActions: "none none none none",  
+      });
+    };
+
+    // Apply the custom ScrollTrigger behavior to each animation
+    createScrollAnimation(
       ".about__title-wrap",
       { opacity: 0, y: 90 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        ease: ease,
-        scrollTrigger: {
-          trigger: ".about__title-wrap",
-          start: "top 90%",
-          end: "bottom top",
-          toggleActions: "play reverse play reverse",
-        },
-      }
+      { opacity: 1, y: 0, duration: 1.5, ease: ease }
     );
 
-    gsap.fromTo(
+    createScrollAnimation(
       ".about__col--left .about__desc, .about__testimonial",
       { opacity: 0, x: -50 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        ease: ease,
-        stagger: 0.2,
-        scrollTrigger: {
-          trigger: ".about__col--left",
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
-      }
+      { opacity: 1, x: 0, duration: 1, ease: ease, stagger: 0.2 },
+      ".about__col--left" 
     );
 
-    gsap.fromTo(
+    createScrollAnimation(
       ".about__image--left",
       { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1.2,
-        ease: ease,
-        scrollTrigger: {
-          trigger: ".about__image--left",
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
-      }
+      { opacity: 1, scale: 1, duration: 1.2, ease: ease }
     );
 
-    gsap.fromTo(
+    createScrollAnimation(
       ".about__image--right",
       { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1.2,
-        ease: ease,
-        scrollTrigger: {
-          trigger: ".about__image--right",
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
-      }
+      { opacity: 1, scale: 1, duration: 1.2, ease: ease }
     );
 
-    gsap.fromTo(
+    createScrollAnimation(
       ".about__button",
       { opacity: 0, y: 50, scale: 0.8 },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        ease: ease,
-        scrollTrigger: {
-          trigger: ".about__button",
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
-      }
+      { opacity: 1, y: 0, scale: 1, duration: 1, ease: ease }
     );
 
-    gsap.fromTo(
+    createScrollAnimation(
       ".about__hand",
       { opacity: 0, x: 100, rotate: 45 },
-      {
-        opacity: 1,
-        x: 0,
-        rotate: 0,
-        duration: 1.5,
-        ease: ease,
-        scrollTrigger: {
-          trigger: ".about__hand",
-          start: "top 90%",
-          toggleActions: "play reverse play reverse",
-        },
-      }
+      { opacity: 1, x: 0, rotate: 0, duration: 1.5, ease: ease }
     );
 
     return () => {
@@ -178,7 +136,7 @@ const AboutAreaOne = () => {
               />
             </div>
             <div className="about__button-wrapper btn-circle__wrapper">
-              <Link to="#" className="about__button">
+              <Link to="/about" className="about__button">
                 <span className="about__button-text">
                   Explore
                   <br />

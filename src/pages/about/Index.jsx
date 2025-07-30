@@ -15,7 +15,7 @@ import BackToTop from "../../common/BackToTop";
 const About = () => {
   return (
     <>
-      <HeaderTwo />
+      <HeaderTwo /> 
       <HeroAboutArea />
       <AboutAreaThree />
       <FactArea />

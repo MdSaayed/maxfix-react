@@ -30,9 +30,9 @@ const FactArea = () => {
       ScrollTrigger.create({
         trigger: item,
         start: "top 90%",
-        end: "bottom top",
-        animation: tl,
-        toggleActions: "play reverse play reverse",
+        onEnter: () => tl.restart(true), 
+        onLeaveBack: () => tl.reverse(), 
+        toggleActions: "none none none none",
       });
     });
 

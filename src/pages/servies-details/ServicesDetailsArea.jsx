@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useStaggerReveal } from "../../hooks/useStaggerReveal";
 
 const ServicesDetailsArea = () => {
+  const animateRef = useRef();
+
+  useStaggerReveal(animateRef, [
+    ".service-details__title",
+    ".service-details__desc",
+    ".service-details__list-item",
+  ]);
+
   return (
-    <section className="service-details">
+    <section className="service-details" ref={animateRef}>
       <div className="service-details__container container">
         <h2 className="service-details__title">
           How to Improve and measure your progress brand identity
@@ -39,10 +48,18 @@ const ServicesDetailsArea = () => {
         </p>
 
         <ul className="service-details__list">
-          <li className="service-details__list-item">Stronger Brand Recognition</li>
-          <li className="service-details__list-item">Improved User Experience</li>
-          <li className="service-details__list-item">Clear, Impactful Messaging</li>
-          <li className="service-details__list-item">Increased Customer Trust</li>
+          <li className="service-details__list-item">
+            Stronger Brand Recognition
+          </li>
+          <li className="service-details__list-item">
+            Improved User Experience
+          </li>
+          <li className="service-details__list-item">
+            Clear, Impactful Messaging
+          </li>
+          <li className="service-details__list-item">
+            Increased Customer Trust
+          </li>
         </ul>
       </div>
     </section>

@@ -7,17 +7,35 @@ import "glightbox/dist/css/glightbox.min.css";
 gsap.registerPlugin(ScrollTrigger);
 
 const VideoArea = ({
-  videoLink = "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+  videoLink = "https://youtu.be/u31qwQUeGuM?si=x0LncYDOXQSLu_mX",
   img = "./assets/images/services/video-thumb-bg.png",
 }) => {
   const wrapperRef = useRef(null);
   const btnRef = useRef(null);
-
   useEffect(() => {
-    // GLightbox
-    const lightbox = GLightbox({ selector: ".glightbox" });
+    const lightbox = GLightbox({
+      selector: ".glightbox",
+    });
 
-    // ScrollTrigger animation for zoom-out thumbnail
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (
+          mutation.type === "attributes" &&
+          mutation.attributeName === "aria-hidden" &&
+          mutation.target.id === "root"
+        ) {
+          // Remove aria-hidden from root to avoid accessibility conflict
+          mutation.target.removeAttribute("aria-hidden");
+        }
+      });
+    });
+
+    const rootEl = document.getElementById("root");
+    if (rootEl) {
+      observer.observe(rootEl, { attributes: true });
+    }
+
+    // GSAP animations
     gsap.fromTo(
       wrapperRef.current,
       { scale: 1.2, opacity: 0 },
@@ -34,7 +52,6 @@ const VideoArea = ({
       }
     );
 
-    // Infinite scale pulse animation for play button
     gsap.to(btnRef.current, {
       scale: 1.15,
       repeat: -1,
@@ -46,8 +63,10 @@ const VideoArea = ({
     return () => {
       lightbox.destroy();
       ScrollTrigger.killAll();
+      observer.disconnect();
     };
   }, []);
+
 
   return (
     <div className="video-area">

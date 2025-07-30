@@ -14,4 +14,4 @@ const AwardItem = ({award,index}) => {
   );
 };
 
-export default AwardItem;
+export default AwardItem; 
