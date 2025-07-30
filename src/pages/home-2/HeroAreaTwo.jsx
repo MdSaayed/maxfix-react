@@ -155,6 +155,12 @@ const HeroAreaTwo = () => {
       }
     }, animateRef);
 
+    document.querySelectorAll(".glightbox").forEach(el => {
+      el.addEventListener("click", () => {
+        el.blur();  
+      });
+    });
+
     const lightbox = GLightbox({
       selector: ".glightbox",
       touchNavigation: true,
@@ -163,7 +169,7 @@ const HeroAreaTwo = () => {
 
     return () => {
       ctx.revert();
-      lightbox.destroy();  
+      lightbox.destroy();
     };
 
   }, []);
@@ -195,10 +201,11 @@ const HeroAreaTwo = () => {
               alt="Play Video"
             />
             <a
-              href="https://youtu.be/u31qwQUeGuM?si=x0LncYDOXQSLu_mX"
+              href="https://www.youtube-nocookie.com/embed/u31qwQUeGuM?autoplay=1"
               className="hero__video-icon glightbox"
               data-type="video"
             >
+
               <svg width="40" height="40" viewBox="0 0 70 70" fill="none">
                 <circle cx="35" cy="35" r="35" fill="white" />
                 <path
